@@ -1,4 +1,4 @@
-public class match3Enums
+public class Match3Enums
 {
     public enum TilePower
     {

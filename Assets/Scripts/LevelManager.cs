@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
         }
         for (int i = 0; i < toReturn.Count; i++)
         {
+            toReturn[i].GetComponent<IPoolable>().ResetForPool();
             ObjectPoolManager.ReturnObjectToPool(toReturn[i]);
         }
     }
