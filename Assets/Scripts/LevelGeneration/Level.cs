@@ -6,6 +6,7 @@ public class Level
     public int rowCount;
     public int columnCount;
     public int obstacleCount;
+    public Sprite[] backgrounds;
     public Sprite[] obstacles;
     public Sprite[] tileTypes;
     #endregion
@@ -15,11 +16,12 @@ public class Level
     public GameObject[] tiles;
     #endregion
 
-    public Level(int rows, int columns, int obstacleCount, Sprite[] obstacles, Sprite[] tileTypes)
+    public Level(int rows, int columns, int obstacleCount, Sprite[] backgrounds, Sprite[] obstacles, Sprite[] tileTypes)
     {
         this.rowCount = rows;
         this.columnCount = columns;
         this.obstacleCount = obstacleCount;
+        this.backgrounds = backgrounds;
         this.obstacles = obstacles;
         this.tileTypes = tileTypes;
     }
@@ -27,6 +29,7 @@ public class Level
     {
         this.rowCount = data.rowCount;
         this.columnCount = data.columnCount;
+        this.backgrounds = data.backgrounds;
         this.obstacles = data.obstacles;
         this.tileTypes = data.tileTypes;
 

@@ -21,7 +21,6 @@ public class ObjectPoolManager : MonoBehaviour
     private static GameObject _backgroundsEmpty;
     private static GameObject _obstaclesEmpty;
     private static GameObject _tilesEmpty;
-    public static PoolType PoolingType;
 
     private void Awake()
     {

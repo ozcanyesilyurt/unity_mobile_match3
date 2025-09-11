@@ -14,6 +14,7 @@ public class LevelBuildData : ScriptableObject //for storing level data in the i
     public float obstaclePercent;
 
     [Header("Sprites")]
+    public Sprite[] backgrounds;
     public Sprite[] obstacles;
     public Sprite[] tileTypes;
 }
