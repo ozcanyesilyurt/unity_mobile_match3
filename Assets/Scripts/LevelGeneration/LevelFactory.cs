@@ -20,7 +20,7 @@ public class LevelFactory
     public Level CreateLevelBackgrounds(Level level)//use scriptable object for bg
     {
         GridLayoutGroup backgroundGrid = LevelManager.Instance.backgroundGrid;
-        
+
         backgroundGrid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;//implement data columns to grid layout component
         backgroundGrid.constraintCount = level.columnCount;//implement data columns to grid layout component
 
@@ -48,40 +48,34 @@ public class LevelFactory
     public Level CreateLevelObstacles(Level level)//use scriptable object for obstacles
     {
         int totalCells = level.rowCount * level.columnCount;
-        int obstacleCount = level.obstacleCount;
-        List<int> obstacleIndexes = new List<int>();
-        for (int i = 0; i < obstacleCount; i++)
+        int obstacleCount = Mathf.Min(level.obstacleCount, totalCells);
+        var obstacleSet = new HashSet<int>();
+        while (obstacleSet.Count < obstacleCount)
         {
-            int obstacleIndex = Random.Range(0, totalCells);
-            if (obstacleIndexes.Contains(obstacleIndex)) continue;
-            obstacleIndexes.Add(obstacleIndex);
+            obstacleSet.Add(Random.Range(0, totalCells));
         }
+
         for (int i = 0; i < totalCells; i++)
         {
-            for (int j = 0; j < obstacleIndexes.Count; j++)
-            {
-                if (i == obstacleIndexes[j])
-                {
-                    int siblingIndex = level.bgAndObstacles[i].transform.GetSiblingIndex();
-                    ObjectPoolManager.ReturnObjectToPool(level.bgAndObstacles[i]);
+            if (!obstacleSet.Contains(i)) continue;
 
-                    GameObject obstacle = ObjectPoolManager.SpawnObject(
-                        levelManager.obstaclePrefab,
-                        Vector3.zero,
-                        Quaternion.identity,
-                        ObjectPoolManager.PoolType.Obstacle
-                    );
-                    obstacle.transform.SetParent(LevelManager.Instance.backgroundGrid.transform, false);
-                    obstacle.transform.SetSiblingIndex(siblingIndex);
-                    Sprite obstacleSprite = Util.GetRandomInArray(level.obstacles);
-                    obstacle.GetComponent<Image>().sprite = obstacleSprite;
+            int siblingIndex = level.bgAndObstacles[i].transform.GetSiblingIndex();
+            ObjectPoolManager.ReturnObjectToPool(level.bgAndObstacles[i]);
 
-                    level.bgAndObstacles[i] = obstacle;
-                    isEmpty[i] = false;
+            GameObject obstacle = ObjectPoolManager.SpawnObject(
+                levelManager.obstaclePrefab,
+                Vector3.zero,
+                Quaternion.identity,
+                ObjectPoolManager.PoolType.Obstacle
+            );
+            obstacle.transform.SetParent(LevelManager.Instance.backgroundGrid.transform, false);
+            obstacle.transform.SetSiblingIndex(siblingIndex);
 
-                    break;
-                }
-            }
+            Sprite obstacleSprite = Util.GetRandomInArray(level.obstacles);
+            obstacle.GetComponent<Image>().sprite = obstacleSprite;
+
+            level.bgAndObstacles[i] = obstacle;
+            isEmpty[i] = false;
         }
         return level;
     }

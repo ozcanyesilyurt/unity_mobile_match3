@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,9 +39,20 @@ public class LevelManager : MonoBehaviour
 
     private void BuildLevel(Level level)
     {
-        backgroundGrid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-        backgroundGrid.constraintCount = level.columnCount;
+        ClearGrid(backgroundGrid);
         LevelFactory levelFactory = new LevelFactory(this);
         levelFactory.CreateBGO(level);
+    }
+    private void ClearGrid(GridLayoutGroup grid)
+    {
+        var toReturn = new List<GameObject>();
+        foreach (Transform child in grid.transform)
+        {
+            toReturn.Add(child.gameObject);
+        }
+        for (int i = 0; i < toReturn.Count; i++)
+        {
+            ObjectPoolManager.ReturnObjectToPool(toReturn[i]);
+        }
     }
 }
