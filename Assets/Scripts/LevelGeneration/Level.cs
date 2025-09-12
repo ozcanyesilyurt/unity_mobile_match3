@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using static Match3Enums;
 
 public class Level
 {
@@ -9,6 +11,7 @@ public class Level
     public Sprite[] backgrounds;
     public Sprite[] obstacles;
     public Sprite[] tileTypes;
+    public Dictionary<TileType, bool> tileTypesAllowed;
     #endregion
 
     #region RuntimeFields
@@ -16,7 +19,7 @@ public class Level
     public GameObject[] tiles;
     #endregion
 
-    public Level(int rows, int columns, int obstacleCount, Sprite[] backgrounds, Sprite[] obstacles, Sprite[] tileTypes)
+    public Level(int rows, int columns, int obstacleCount, Sprite[] backgrounds, Sprite[] obstacles, Sprite[] tileTypes, Dictionary<TileType, bool> tileTypesAllowed)
     {
         this.rowCount = rows;
         this.columnCount = columns;
@@ -24,6 +27,7 @@ public class Level
         this.backgrounds = backgrounds;
         this.obstacles = obstacles;
         this.tileTypes = tileTypes;
+        this.tileTypesAllowed = tileTypesAllowed;
     }
     public Level(LevelBuildData data)
     {
@@ -32,6 +36,7 @@ public class Level
         this.backgrounds = data.backgrounds;
         this.obstacles = data.obstacles;
         this.tileTypes = data.tileTypes;
+        this.tileTypesAllowed = data.tileTypesAllowed;
 
         if (data.obstacleCountIsRandom)//check if obstacle count is random
         {

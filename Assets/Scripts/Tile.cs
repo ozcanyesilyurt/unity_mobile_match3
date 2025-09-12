@@ -22,4 +22,10 @@ public class Tile : MonoBehaviour, IPoolable
         transform.localScale = Vector3.one;
         transform.rotation = Quaternion.identity;
     }
+
+    public void FallTo(int newRow, int newColumn)
+    {
+        row = newRow;
+        column = newColumn;
+    }
 }
