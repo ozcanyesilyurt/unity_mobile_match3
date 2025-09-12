@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public RectTransform backgroundCanvas; // Reference to Match3_Canvas_BG
     public GridLayoutGroup backgroundGrid; // Reference to Match3_Board_BG
     public RectTransform tilesCanvas;      // Reference to match3_Canvas_Matches
+    public GridLayoutGroup tilesGrid;      // Reference to Match3_Board_Matches
 
 
     public LevelBuildData currentLevel;
