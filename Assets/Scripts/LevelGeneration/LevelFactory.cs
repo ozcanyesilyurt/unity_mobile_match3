@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using static Match3Enums;
 
@@ -45,8 +43,8 @@ public class LevelFactory
             );
             bgCell.transform.SetParent(backgroundGrid.transform, false);
             isEmpty[i] = true;
-            Sprite bgSprite = Util.GetRepeatingElement(level.backgrounds, i);
-            bgCell.GetComponent<Image>().sprite = bgSprite;
+            BackgroundType backgroundType = Util.GetRandomInArray(level.backgroundTypesAllowed);
+            bgCell.GetComponent<Image>().sprite = SpriteManager.Instance.GetRepeatingSpriteBackground(backgroundType, i);
             level.bgAndObstacles[i] = bgCell;
         }
         return level;
@@ -77,10 +75,8 @@ public class LevelFactory
             );
             obstacle.transform.SetParent(LevelManager.Instance.backgroundGrid.transform, false);
             obstacle.transform.SetSiblingIndex(siblingIndex);
-
-            Sprite obstacleSprite = Util.GetRandomInArray(level.obstacles);
-            obstacle.GetComponent<Image>().sprite = obstacleSprite;
-
+            ObstacleType obstacleType = Util.GetRandomInArray(level.obstacleTypesAllowed);
+            obstacle.GetComponent<Image>().sprite = SpriteManager.Instance.GetRandomSpriteObstacle(obstacleType);
             level.bgAndObstacles[i] = obstacle;
             isEmpty[i] = false;
         }
@@ -101,6 +97,7 @@ public class LevelFactory
         tileGO.transform.SetParent(LevelManager.Instance.tilesContainer.transform, false);
         Tile tile = tileGO.GetComponent<Tile>();
         tile.ResetForPool();
+        tile.type = Util.GetRandomInArray(level.tileTypesAllowed);
         return tile;
     }
 

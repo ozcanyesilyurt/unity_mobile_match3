@@ -17,14 +17,6 @@ MonoBehaviour:
   obstacleCount: 10
   obstacleCountIsRandom: 0
   obstaclePercent: 0
-  backgrounds:
-  - {fileID: 21300000, guid: ad26dd846751bee40a3bc2bc47e8ba99, type: 3}
-  obstacles:
-  - {fileID: 21300000, guid: 05e62fe83d53abd47b9dd3d2ae932471, type: 3}
-  tileTypes:
-  - {fileID: 21300000, guid: f3758b92edae0a24a9aede35d3324ad9, type: 3}
-  - {fileID: 21300000, guid: 7a8a6956eb1b195438a1c8ed440e2617, type: 3}
-  - {fileID: 21300000, guid: 982adedc9d32cce48b5ce9af66969e25, type: 3}
-  - {fileID: 21300000, guid: 64fa7038e48a3d14bbd99130fa479a45, type: 3}
-  - {fileID: 21300000, guid: c0b575c20f9e0d741a046ad5fe0eb431, type: 3}
-  - {fileID: 21300000, guid: 04f843495f66ed54991ff6723ca5886b, type: 3}
+  tileTypesAllowed: 0000000002000000030000000400000005000000
+  backgroundTypesAllowed: 00000000
+  obstacleTypesAllowed: 00000000

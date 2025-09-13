@@ -6,11 +6,6 @@ using Sirenix.OdinInspector;
 [CreateAssetMenu(fileName = "LevelBuildData", menuName = "LevelBuild/LevelBuildData", order = 1)]
 public class LevelBuildData : ScriptableObject //for storing level data in the inspector
 {
-    [Header("Sprites")]
-    public Sprite[] backgrounds;
-    public Sprite[] obstacles;
-    public Sprite[] tileTypes;
-
     [Header("Configuration")]
     public int rowCount;
     public int columnCount;
@@ -23,13 +18,26 @@ public class LevelBuildData : ScriptableObject //for storing level data in the i
 
     [Header("Tile Types")]
     [ShowInInspector]
-    public Dictionary<TileType, bool> tileTypesAllowed = new()
+    public TileType[] tileTypesAllowed = new TileType[]
     {
-        { TileType.Red, true },
-        { TileType.Blue, true },
-        { TileType.Green, true },
-        { TileType.Yellow, true },
-        { TileType.Purple, true },
+        TileType.Red,
+        TileType.Blue,
+        TileType.Green,
+        TileType.Yellow,
+        TileType.Purple
+    };
+    public BackgroundType[] backgroundTypesAllowed = new BackgroundType[]
+    {
+        BackgroundType.White,
+        BackgroundType.Black,
+        BackgroundType.None
+    };
+    public ObstacleType[] obstacleTypesAllowed = new ObstacleType[]
+    {
+        ObstacleType.Rock,
+        ObstacleType.Wood,
+        ObstacleType.Ice,
+        ObstacleType.Metal
     };
 
     [Header("Tile Power Percentage")]

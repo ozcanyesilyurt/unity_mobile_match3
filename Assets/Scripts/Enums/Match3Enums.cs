@@ -11,13 +11,27 @@ public class Match3Enums
 
     public enum TileType
     {
-        Red,
-        Pink,
-        Blue,
-        Green,
-        Yellow,
-        Purple,
-        Brown,
+        Red = 0,
+        Pink = 1,
+        Blue = 2,
+        Green = 3,
+        Yellow = 4,
+        Purple = 5,
+        Brown = 6,
+        None = 7
+    }
+    public enum ObstacleType
+    {
+        Rock,
+        Wood,
+        Ice,
+        Metal,
+        None
+    }
+    public enum BackgroundType
+    {
+        White,
+        Black,
         None
     }
 

@@ -8,10 +8,9 @@ public class Level
     public int rowCount;
     public int columnCount;
     public int obstacleCount;
-    public Sprite[] backgrounds;
-    public Sprite[] obstacles;
-    public Sprite[] tileTypes;
-    public Dictionary<TileType, bool> tileTypesAllowed;
+    public TileType[] tileTypesAllowed;
+    public BackgroundType[] backgroundTypesAllowed;
+    public ObstacleType[] obstacleTypesAllowed;
     #endregion
 
     #region RuntimeFields
@@ -19,24 +18,20 @@ public class Level
     public GameObject[] tiles;
     #endregion
 
-    public Level(int rows, int columns, int obstacleCount, Sprite[] backgrounds, Sprite[] obstacles, Sprite[] tileTypes, Dictionary<TileType, bool> tileTypesAllowed)
+    public Level(int rows, int columns, int obstacleCount, TileType[] tileTypesAllowed, BackgroundType[] backgroundTypesAllowed, ObstacleType[] obstacleTypesAllowed)
     {
         this.rowCount = rows;
         this.columnCount = columns;
         this.obstacleCount = obstacleCount;
-        this.backgrounds = backgrounds;
-        this.obstacles = obstacles;
-        this.tileTypes = tileTypes;
         this.tileTypesAllowed = tileTypesAllowed;
     }
     public Level(LevelBuildData data)
     {
         this.rowCount = data.rowCount;
         this.columnCount = data.columnCount;
-        this.backgrounds = data.backgrounds;
-        this.obstacles = data.obstacles;
-        this.tileTypes = data.tileTypes;
         this.tileTypesAllowed = data.tileTypesAllowed;
+        this.backgroundTypesAllowed = data.backgroundTypesAllowed;
+        this.obstacleTypesAllowed = data.obstacleTypesAllowed;
 
         if (data.obstacleCountIsRandom)//check if obstacle count is random
         {

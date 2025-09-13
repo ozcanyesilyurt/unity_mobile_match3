@@ -14,7 +14,6 @@ public class LevelManager : MonoBehaviour
     public GridLayoutGroup tilesContainer;// match3 tiles are children of this container
 
     public LevelBuildData currentLevelData;
-
     public static LevelManager Instance;
     private void Awake()
     {
