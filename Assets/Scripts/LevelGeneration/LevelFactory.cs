@@ -7,6 +7,7 @@ public class LevelFactory
 {
     private LevelManager levelManager;
     private bool[] isEmpty;
+    private Dictionary<TileType, Sprite> tileSpritesDict = new Dictionary<TileType, Sprite>();
 
     public LevelFactory(LevelManager levelManager)
     {
@@ -84,9 +85,37 @@ public class LevelFactory
     }
     public Level CreateLevelTiles(Level level)//TDO: implement tile creation
     {
+        SetupTileSprites(level);
+
+        int totalCells = level.rowCount * level.columnCount;
+        level.tiles = new GameObject[totalCells];
+
+        for (int i = 0; i < totalCells; i++)
+        {
+            if (!isEmpty[i]) continue;
+
+            int row = i / level.columnCount;
+            int column = i % level.columnCount;
+            TileType tileType = Util.GetRandomInArray(level.tileTypesAllowed);
+            TilePower tilePower = TilePower.Normal;//implement tile power later
+            Tile tile = CreateTile(level, tileType, tilePower);
+            tile.NewCoordinates(row, column);
+            TileStartPosition(tile);
+
+            tile.sprite = tileSpritesDict[tile.type];
+            tile.GetComponent<Image>().sprite = tile.sprite;
+            level.tiles[i] = tile.gameObject;
+        }
+        //IMPLEMENT
+
+
+
+
+
+
         return null;
     }
-    public Tile CreateTile(Level level)//TDO: implement tile creation
+    public Tile CreateTile(Level level, TileType type, TilePower tilePower)//TDO: implement tile creation
     {
         GameObject tileGO = ObjectPoolManager.SpawnObject(
                 levelManager.tilePrefab,
@@ -97,7 +126,7 @@ public class LevelFactory
         tileGO.transform.SetParent(LevelManager.Instance.tilesContainer.transform, false);
         Tile tile = tileGO.GetComponent<Tile>();
         tile.ResetForPool();
-        tile.type = Util.GetRandomInArray(level.tileTypesAllowed);
+        tileGO.GetComponent<Image>().sprite = tileSpritesDict[type];
         return tile;
     }
 
@@ -105,5 +134,14 @@ public class LevelFactory
     {
         Vector3 startPosition = levelManager.GetTilePosition(0, tile.column);
         tile.transform.position = startPosition;
+    }
+    public void SetupTileSprites(Level level)//set tile sprite based on level data
+    {
+        foreach (var tiletype in level.tileTypesAllowed)
+        {
+            Sprite sprite = SpriteManager.Instance.GetRandomSpriteTileType(tiletype);
+            //store sprites in a dictionary for easy access later
+            tileSpritesDict[tiletype] = sprite;
+        }
     }
 }
