@@ -154,8 +154,8 @@ MonoBehaviour:
   backgroundCanvas: {fileID: 893738406}
   backgroundGrid: {fileID: 275220356}
   tilesCanvas: {fileID: 236154534}
-  tilesContainer: {fileID: 0}
-  currentLevel: {fileID: 11400000, guid: 38370309c40a5be4b8e46edc9ebffffc, type: 2}
+  tilesContainer: {fileID: 275220356}
+  currentLevelData: {fileID: 11400000, guid: 38370309c40a5be4b8e46edc9ebffffc, type: 2}
 --- !u!4 &204411354
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,11 @@ using Sirenix.OdinInspector;
 [CreateAssetMenu(fileName = "LevelBuildData", menuName = "LevelBuild/LevelBuildData", order = 1)]
 public class LevelBuildData : ScriptableObject //for storing level data in the inspector
 {
+    [Header("Sprites")]
+    public Sprite[] backgrounds;
+    public Sprite[] obstacles;
+    public Sprite[] tileTypes;
+
     [Header("Configuration")]
     public int rowCount;
     public int columnCount;
@@ -28,17 +33,23 @@ public class LevelBuildData : ScriptableObject //for storing level data in the i
     };
 
     [Header("Tile Power Percentage")]
-    [Range(0f, 100f)]
-    public float horizontalClearPercent;
-    [Range(0f, 100f)]
-    public float verticalClearPercent;
-    [Range(0f, 100f)]
-    public float bombPercent;
-    [Range(0f, 100f)]
-    public float colorClearPercent;
+    [ShowInInspector]
+    [DictionaryDrawerSettings(KeyLabel = "Power Type", ValueLabel = "Percentage Chance")]
+    public Dictionary<TilePower, float> tilePowerPercentages = new()
+{
+    { TilePower.HorizontalClear, 0f },
+    { TilePower.VerticalClear, 0f },
+    { TilePower.Bomb, 0f },
+    { TilePower.ColorClear, 0f }
+};
 
-    [Header("Sprites")]
-    public Sprite[] backgrounds;
-    public Sprite[] obstacles;
-    public Sprite[] tileTypes;
+    [OnInspectorGUI]
+    private void ValidateTilePowerPercentages()
+    {
+        foreach (var key in new List<TilePower>(tilePowerPercentages.Keys))
+        {
+            tilePowerPercentages[key] = Mathf.Clamp(tilePowerPercentages[key], 0f, 100f);
+        }
+    }
+
 }

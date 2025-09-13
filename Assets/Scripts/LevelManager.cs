@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     public RectTransform tilesCanvas;      // tilesContainer is on this canvas
     public GridLayoutGroup tilesContainer;// match3 tiles are children of this container
 
-    public LevelBuildData currentLevel;
+    public LevelBuildData currentLevelData;
 
     public static LevelManager Instance;
     private void Awake()
@@ -31,17 +31,17 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        BuildLevel(new Level(currentLevel));
+        CreateLevel(currentLevelData);
 
     }
 
 
 
-    private void BuildLevel(Level level)
+    public Level CreateLevel(LevelBuildData levelData)
     {
         ClearGrid(backgroundGrid);
-        LevelFactory levelFactory = new LevelFactory(this);
-        levelFactory.CreateBGO(level);
+        return new LevelFactory(this)
+            .CreateLevel(levelData);
     }
     private void ClearGrid(GridLayoutGroup grid)
     {

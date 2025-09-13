@@ -9,14 +9,19 @@ public class LevelFactory
 {
     private LevelManager levelManager;
     private bool[] isEmpty;
+
     public LevelFactory(LevelManager levelManager)
     {
         this.levelManager = levelManager;
     }
 
-    public Level CreateBGO(Level level)
+    public Level CreateLevel(LevelBuildData levelData)
     {
-        return CreateLevelObstacles(CreateLevelBackgrounds(level));
+        Level level = new Level(levelData);
+        CreateLevelBackgrounds(level);
+        CreateLevelObstacles(level);
+        CreateLevelTiles(level);
+        return level;
     }
 
     public Level CreateLevelBackgrounds(Level level)//use scriptable object for bg
@@ -87,15 +92,15 @@ public class LevelFactory
     }
     public Tile CreateTile(Level level)//TDO: implement tile creation
     {
-    GameObject tileGO = ObjectPoolManager.SpawnObject(
-            levelManager.tilePrefab,
-            Vector3.zero,
-            Quaternion.identity,
-            ObjectPoolManager.PoolType.Tile
-        );
+        GameObject tileGO = ObjectPoolManager.SpawnObject(
+                levelManager.tilePrefab,
+                Vector3.zero,
+                Quaternion.identity,
+                ObjectPoolManager.PoolType.Tile
+            );
         tileGO.transform.SetParent(LevelManager.Instance.tilesContainer.transform, false);
         Tile tile = tileGO.GetComponent<Tile>();
-        tile.
+        tile.ResetForPool();
         return tile;
     }
 
