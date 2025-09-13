@@ -8,11 +8,10 @@ public class LevelManager : MonoBehaviour
     public GameObject obstaclePrefab;
     public GameObject tilePrefab;
 
-    public RectTransform backgroundCanvas; // Reference to Match3_Canvas_BG
-    public GridLayoutGroup backgroundGrid; // Reference to Match3_Board_BG
-    public RectTransform tilesCanvas;      // Reference to match3_Canvas_Matches
-    public GridLayoutGroup tilesGrid;      // Reference to Match3_Board_Matches
-
+    public RectTransform backgroundCanvas; // backgroundGrid is on this canvas
+    public GridLayoutGroup backgroundGrid; // Board backgrounds and obstacles are children of this grid
+    public RectTransform tilesCanvas;      // tilesContainer is on this canvas
+    public GridLayoutGroup tilesContainer;// match3 tiles are children of this container
 
     public LevelBuildData currentLevel;
 
@@ -57,4 +56,16 @@ public class LevelManager : MonoBehaviour
             ObjectPoolManager.ReturnObjectToPool(toReturn[i]);
         }
     }
+
+    public Vector3 GetTilePosition(int row, int column)// get world position of tile based on row and column in backgroundGrid
+    {
+        float cellWidth = backgroundGrid.cellSize.x + backgroundGrid.spacing.x;
+        float cellHeight = backgroundGrid.cellSize.y + backgroundGrid.spacing.y;
+
+        float x = (column * cellWidth) + (cellWidth / 2) - (backgroundGrid.GetComponent<RectTransform>().rect.width / 2);
+        float y = -(row * cellHeight) - (cellHeight / 2) + (backgroundGrid.GetComponent<RectTransform>().rect.height / 2);
+
+        return new Vector3(x, y, 0f);
+    }
+
 }

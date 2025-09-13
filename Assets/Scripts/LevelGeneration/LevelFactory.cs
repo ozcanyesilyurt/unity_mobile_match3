@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using static Match3Enums;
 
 public class LevelFactory
 {
@@ -82,5 +84,24 @@ public class LevelFactory
     public Level CreateLevelTiles(Level level)//TDO: implement tile creation
     {
         return null;
+    }
+    public Tile CreateTile(Level level)//TDO: implement tile creation
+    {
+    GameObject tileGO = ObjectPoolManager.SpawnObject(
+            levelManager.tilePrefab,
+            Vector3.zero,
+            Quaternion.identity,
+            ObjectPoolManager.PoolType.Tile
+        );
+        tileGO.transform.SetParent(LevelManager.Instance.tilesContainer.transform, false);
+        Tile tile = tileGO.GetComponent<Tile>();
+        tile.
+        return tile;
+    }
+
+    public void TileStartPosition(Tile tile)//set tile position based on column because row is always 0 at start and they will fall down
+    {
+        Vector3 startPosition = levelManager.GetTilePosition(0, tile.column);
+        tile.transform.position = startPosition;
     }
 }

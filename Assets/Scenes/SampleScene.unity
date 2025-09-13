@@ -154,7 +154,7 @@ MonoBehaviour:
   backgroundCanvas: {fileID: 893738406}
   backgroundGrid: {fileID: 275220356}
   tilesCanvas: {fileID: 236154534}
-  tilesGrid: {fileID: 0}
+  tilesContainer: {fileID: 0}
   currentLevel: {fileID: 11400000, guid: 38370309c40a5be4b8e46edc9ebffffc, type: 2}
 --- !u!4 &204411354
 Transform:
@@ -972,7 +972,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 906201229}
-  - component: {fileID: 906201230}
   m_Layer: 6
   m_Name: Match3_Board_Tiles
   m_TagString: Untagged
@@ -999,30 +998,6 @@ RectTransform:
   m_AnchoredPosition: {x: 86.69165, y: -1108.2667}
   m_SizeDelta: {x: 1068.6172, y: 1359.3477}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &906201230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906201228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 1
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 110, y: 110}
-  m_Spacing: {x: 3, y: 3}
-  m_Constraint: 0
-  m_ConstraintCount: 2
 --- !u!1 &960057831
 GameObject:
   m_ObjectHideFlags: 0

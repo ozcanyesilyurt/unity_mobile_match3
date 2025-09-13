@@ -2,7 +2,11 @@ public class Match3Enums
 {
     public enum TilePower
     {
-        Normal
+        Normal,
+        HorizontalClear,
+        VerticalClear,
+        Bomb,
+        ColorClear
     }
 
     public enum TileType

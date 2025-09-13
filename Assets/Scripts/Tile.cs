@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using static Match3Enums;
+using DG.Tweening;
 
 public class Tile : MonoBehaviour, IPoolable
 {
@@ -9,6 +10,7 @@ public class Tile : MonoBehaviour, IPoolable
     public TilePower power;
     public TileType type;
     public Sprite sprite;
+    public float speed = 0.2f; //speed to move tile one row or column
 
     public void ResetForPool()
     {
@@ -23,9 +25,16 @@ public class Tile : MonoBehaviour, IPoolable
         transform.rotation = Quaternion.identity;
     }
 
-    public void FallTo(int newRow, int newColumn)
+    public void MoveTo(int newRow, int newColumn)//tween to new position
     {
-        row = newRow;
-        column = newColumn;
+        Vector3 targetPosition = LevelManager.Instance.GetTilePosition(newRow, newColumn);
+        transform.DOMove(targetPosition, speed).SetEase(Ease.OutBack);
     }
+
+    public void NewCoordinates(int row, int column)
+    {
+        this.row = row;
+        this.column = column;
+    }
+
 }

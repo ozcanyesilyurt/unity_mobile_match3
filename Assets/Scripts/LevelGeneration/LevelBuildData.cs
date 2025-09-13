@@ -27,6 +27,16 @@ public class LevelBuildData : ScriptableObject //for storing level data in the i
         { TileType.Purple, true },
     };
 
+    [Header("Tile Power Percentage")]
+    [Range(0f, 100f)]
+    public float horizontalClearPercent;
+    [Range(0f, 100f)]
+    public float verticalClearPercent;
+    [Range(0f, 100f)]
+    public float bombPercent;
+    [Range(0f, 100f)]
+    public float colorClearPercent;
+
     [Header("Sprites")]
     public Sprite[] backgrounds;
     public Sprite[] obstacles;
