@@ -85,7 +85,7 @@ public class LevelFactory
         }
         return level;
     }
-    public Level CreateLevelTiles(Level level)//TDO: implement tile creation
+    public Level CreateLevelTiles(Level level)
     {
         SetTileSpritesDict(level);//set tile spprite dictionary based on level data
 
@@ -112,7 +112,7 @@ public class LevelFactory
 
         return level;
     }
-    public Tile CreateTile(Level level, TileType type, TilePower tilePower)//TDO: implement tile creation
+    public Tile CreateTile(Level level, TileType type, TilePower tilePower)
     {
         GameObject tileGO = ObjectPoolManager.SpawnObject(
                 levelManager.tilePrefab,
@@ -130,36 +130,29 @@ public class LevelFactory
         return tile;
     }
 
-    public void TileStartPosition(Tile tile)//set tile position based on column because row is always 0 at start and they will fall down
+    public void TileStartPosition(Tile tile)//set tile position to final grid location
     {
         GridLayoutGroup backgroundGrid = LevelManager.Instance.backgroundGrid;
-
-        float cellWidth = backgroundGrid.cellSize.x + backgroundGrid.spacing.x;
-        float cellHeight = backgroundGrid.cellSize.y + backgroundGrid.spacing.y;
-
-        // Calculate the total width of the grid content
-        float totalGridWidth = (backgroundGrid.constraintCount * cellWidth) - backgroundGrid.spacing.x;
-
-        // Calculate the centering offset (how much the grid is shifted from left edge due to UpperCenter alignment)
-        RectTransform gridRect = backgroundGrid.GetComponent<RectTransform>();
-        float centeringOffset = (gridRect.rect.width - totalGridWidth) / 2f;
-
-        // Calculate X position based on column, accounting for centering
-        float xOffset = centeringOffset + (tile.column * cellWidth) + (cellWidth / 2);
-
-        // Track how many tiles are already in this column
-        if (!columnTileCount.ContainsKey(tile.column))
-        {
-            columnTileCount[tile.column] = 0;
-        }
-
-        float yOffset = cellHeight + (columnTileCount[tile.column] * cellHeight);
-
-        // Increment count for this column
-        columnTileCount[tile.column]++;
-
-        // Set local position relative to the tiles container
-        tile.transform.localPosition = new Vector3(xOffset, yOffset, 0f);
+        
+        // Calculate position manually using grid layout properties
+        float cellWidth = backgroundGrid.cellSize.x;
+        float cellHeight = backgroundGrid.cellSize.y;
+        float spacingX = backgroundGrid.spacing.x;
+        float spacingY = backgroundGrid.spacing.y;
+        
+        // Calculate total grid dimensions
+        int columns = backgroundGrid.constraintCount;
+        int rows = backgroundGrid.transform.childCount / columns; // Calculate actual rows
+        
+        float totalWidth = (columns * cellWidth) + ((columns - 1) * spacingX);
+        float totalHeight = (rows * cellHeight) + ((rows - 1) * spacingY);
+        
+        // Calculate tile position relative to grid center
+        float xPos = (tile.column * (cellWidth + spacingX)) - (totalWidth * 0.5f) + (cellWidth * 0.5f);
+        float yPos = (totalHeight * 0.5f) - (tile.row * (cellHeight + spacingY)) - (cellHeight * 0.5f);
+        
+        // Set the position directly
+        tile.transform.localPosition = new Vector3(xPos, yPos, 0f);
     }
 
     public void SetTileSpritesDict(Level level)//set tile sprite based on level data

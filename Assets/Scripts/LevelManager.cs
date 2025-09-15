@@ -33,7 +33,6 @@ public class LevelManager : MonoBehaviour
     {
         CreateLevel(currentLevelData);
         DebugTilesArray();
-
     }
 
 
@@ -58,15 +57,13 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public Vector3 GetTilePosition(int row, int column)// get world position of tile based on row and column in backgroundGrid
+    public Vector3 GetCellPosition(int row, int column)
     {
-        float cellWidth = backgroundGrid.cellSize.x + backgroundGrid.spacing.x;
-        float cellHeight = backgroundGrid.cellSize.y + backgroundGrid.spacing.y;
+        Transform cellTransform = backgroundGrid.transform.GetChild(row * currentLevel.columnCount + column);
 
-        float x = (column * cellWidth) + (cellWidth / 2) - (backgroundGrid.GetComponent<RectTransform>().rect.width / 2);
-        float y = -(row * cellHeight) - (cellHeight / 2) + (backgroundGrid.GetComponent<RectTransform>().rect.height / 2);
 
-        return new Vector3(x, y, 0f);
+
+        return cellTransform.position;
     }
 
     public void DebugTilesArray()
@@ -74,7 +71,7 @@ public class LevelManager : MonoBehaviour
         foreach (var tile in currentLevel.tiles)
         {
             if (tile != null)
-                Debug.Log($"Tile at ({tile.GetComponent<Tile>().row}, {tile.GetComponent<Tile>().column}): {tile.gameObject.name}");
+                Debug.Log($"Tile at ({tile.GetComponent<Tile>().row}, {tile.GetComponent<Tile>().column}): {tile.GetComponent<Tile>().type}");
             else
                 Debug.Log("Null tile found");
         }

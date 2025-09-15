@@ -63,6 +63,30 @@ public class HierarchyCopier : OdinEditorWindow
 	private void SerializeComponentFields(Component comp, StringBuilder sb, int indent)
 	{
 		string indentStr = new string(' ', indent * 2);
+		
+		// Special handling for RectTransform
+		if (comp is RectTransform rectTransform)
+		{
+			sb.AppendLine($"{indentStr}anchoredPosition: {rectTransform.anchoredPosition}");
+			sb.AppendLine($"{indentStr}sizeDelta: {rectTransform.sizeDelta}");
+			sb.AppendLine($"{indentStr}anchorMin: {rectTransform.anchorMin}");
+			sb.AppendLine($"{indentStr}anchorMax: {rectTransform.anchorMax}");
+			sb.AppendLine($"{indentStr}pivot: {rectTransform.pivot}");
+			sb.AppendLine($"{indentStr}localPosition: {rectTransform.localPosition}");
+			sb.AppendLine($"{indentStr}localRotation: {rectTransform.localRotation}");
+			sb.AppendLine($"{indentStr}localScale: {rectTransform.localScale}");
+			return;
+		}
+		
+		// Special handling for Transform (if not RectTransform)
+		if (comp is Transform transform && !(comp is RectTransform))
+		{
+			sb.AppendLine($"{indentStr}localPosition: {transform.localPosition}");
+			sb.AppendLine($"{indentStr}localRotation: {transform.localRotation}");
+			sb.AppendLine($"{indentStr}localScale: {transform.localScale}");
+			return;
+		}
+		
 		var fields = comp.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 		foreach (var field in fields)
 		{
