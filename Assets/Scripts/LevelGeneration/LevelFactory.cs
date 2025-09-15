@@ -6,8 +6,9 @@ using static Match3Enums;
 public class LevelFactory
 {
     private LevelManager levelManager;
-    private bool[] isEmpty;
+    private bool[] noObstacle;
     private Dictionary<TileType, Sprite> tileSpritesDict = new Dictionary<TileType, Sprite>();
+    private Dictionary<int, int> columnTileCount = new Dictionary<int, int>();
 
     public LevelFactory(LevelManager levelManager)
     {
@@ -17,6 +18,7 @@ public class LevelFactory
     public Level CreateLevel(LevelBuildData levelData)
     {
         Level level = new Level(levelData);
+        columnTileCount.Clear();
         CreateLevelBackgrounds(level);
         CreateLevelObstacles(level);
         CreateLevelTiles(level);
@@ -31,7 +33,7 @@ public class LevelFactory
         backgroundGrid.constraintCount = level.columnCount;//implement data columns to grid layout component
 
         int totalCells = level.rowCount * level.columnCount;
-        isEmpty = new bool[totalCells];
+        noObstacle = new bool[totalCells];
         level.bgAndObstacles = new GameObject[totalCells];
 
         for (int i = 0; i < totalCells; i++)
@@ -43,7 +45,7 @@ public class LevelFactory
                 ObjectPoolManager.PoolType.Background
             );
             bgCell.transform.SetParent(backgroundGrid.transform, false);
-            isEmpty[i] = true;
+            noObstacle[i] = true;
             BackgroundType backgroundType = Util.GetRandomInArray(level.backgroundTypesAllowed);
             bgCell.GetComponent<Image>().sprite = SpriteManager.Instance.GetRepeatingSpriteBackground(backgroundType, i);
             level.bgAndObstacles[i] = bgCell;
@@ -79,20 +81,20 @@ public class LevelFactory
             ObstacleType obstacleType = Util.GetRandomInArray(level.obstacleTypesAllowed);
             obstacle.GetComponent<Image>().sprite = SpriteManager.Instance.GetRandomSpriteObstacle(obstacleType);
             level.bgAndObstacles[i] = obstacle;
-            isEmpty[i] = false;
+            noObstacle[i] = false;
         }
         return level;
     }
     public Level CreateLevelTiles(Level level)//TDO: implement tile creation
     {
-        SetupTileSprites(level);
+        SetTileSpritesDict(level);//set tile spprite dictionary based on level data
 
         int totalCells = level.rowCount * level.columnCount;
         level.tiles = new GameObject[totalCells];
 
         for (int i = 0; i < totalCells; i++)
         {
-            if (!isEmpty[i]) continue;
+            if (!noObstacle[i]) continue;
 
             int row = i / level.columnCount;
             int column = i % level.columnCount;
@@ -106,14 +108,9 @@ public class LevelFactory
             tile.GetComponent<Image>().sprite = tile.sprite;
             level.tiles[i] = tile.gameObject;
         }
-        //IMPLEMENT
 
 
-
-
-
-
-        return null;
+        return level;
     }
     public Tile CreateTile(Level level, TileType type, TilePower tilePower)//TDO: implement tile creation
     {
@@ -126,16 +123,46 @@ public class LevelFactory
         tileGO.transform.SetParent(LevelManager.Instance.tilesContainer.transform, false);
         Tile tile = tileGO.GetComponent<Tile>();
         tile.ResetForPool();
-        tileGO.GetComponent<Image>().sprite = tileSpritesDict[type];
+        tile.type = type;
+        tile.power = tilePower;
+        tile.sprite = tileSpritesDict[type];
+        tileGO.GetComponent<Image>().sprite = tile.sprite;
         return tile;
     }
 
     public void TileStartPosition(Tile tile)//set tile position based on column because row is always 0 at start and they will fall down
     {
-        Vector3 startPosition = levelManager.GetTilePosition(0, tile.column);
-        tile.transform.position = startPosition;
+        GridLayoutGroup backgroundGrid = LevelManager.Instance.backgroundGrid;
+
+        float cellWidth = backgroundGrid.cellSize.x + backgroundGrid.spacing.x;
+        float cellHeight = backgroundGrid.cellSize.y + backgroundGrid.spacing.y;
+
+        // Calculate the total width of the grid content
+        float totalGridWidth = (backgroundGrid.constraintCount * cellWidth) - backgroundGrid.spacing.x;
+
+        // Calculate the centering offset (how much the grid is shifted from left edge due to UpperCenter alignment)
+        RectTransform gridRect = backgroundGrid.GetComponent<RectTransform>();
+        float centeringOffset = (gridRect.rect.width - totalGridWidth) / 2f;
+
+        // Calculate X position based on column, accounting for centering
+        float xOffset = centeringOffset + (tile.column * cellWidth) + (cellWidth / 2);
+
+        // Track how many tiles are already in this column
+        if (!columnTileCount.ContainsKey(tile.column))
+        {
+            columnTileCount[tile.column] = 0;
+        }
+
+        float yOffset = cellHeight + (columnTileCount[tile.column] * cellHeight);
+
+        // Increment count for this column
+        columnTileCount[tile.column]++;
+
+        // Set local position relative to the tiles container
+        tile.transform.localPosition = new Vector3(xOffset, yOffset, 0f);
     }
-    public void SetupTileSprites(Level level)//set tile sprite based on level data
+
+    public void SetTileSpritesDict(Level level)//set tile sprite based on level data
     {
         foreach (var tiletype in level.tileTypesAllowed)
         {

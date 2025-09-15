@@ -11,9 +11,10 @@ public class LevelManager : MonoBehaviour
     public RectTransform backgroundCanvas; // backgroundGrid is on this canvas
     public GridLayoutGroup backgroundGrid; // Board backgrounds and obstacles are children of this grid
     public RectTransform tilesCanvas;      // tilesContainer is on this canvas
-    public GridLayoutGroup tilesContainer;// match3 tiles are children of this container
+    public GameObject tilesContainer;      // match3 tiles are children of this container
 
     public LevelBuildData currentLevelData;
+    public Level currentLevel;
     public static LevelManager Instance;
     private void Awake()
     {
@@ -31,15 +32,16 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         CreateLevel(currentLevelData);
+        DebugTilesArray();
 
     }
 
 
 
-    public Level CreateLevel(LevelBuildData levelData)
+    public void CreateLevel(LevelBuildData levelData)
     {
         ClearGrid(backgroundGrid);
-        return new LevelFactory(this)
+        currentLevel = new LevelFactory(this)
             .CreateLevel(levelData);
     }
     private void ClearGrid(GridLayoutGroup grid)
@@ -67,4 +69,14 @@ public class LevelManager : MonoBehaviour
         return new Vector3(x, y, 0f);
     }
 
+    public void DebugTilesArray()
+    {
+        foreach (var tile in currentLevel.tiles)
+        {
+            if (tile != null)
+                Debug.Log($"Tile at ({tile.GetComponent<Tile>().row}, {tile.GetComponent<Tile>().column}): {tile.gameObject.name}");
+            else
+                Debug.Log("Null tile found");
+        }
+    }
 }

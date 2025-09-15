@@ -155,7 +155,7 @@ MonoBehaviour:
   backgroundCanvas: {fileID: 893738406}
   backgroundGrid: {fileID: 275220356}
   tilesCanvas: {fileID: 236154534}
-  tilesContainer: {fileID: 275220356}
+  tilesContainer: {fileID: 906201228}
   currentLevelData: {fileID: 11400000, guid: 38370309c40a5be4b8e46edc9ebffffc, type: 2}
 --- !u!4 &204411354
 Transform:
@@ -198,9 +198,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9393ee201df8c19409fe224b884dc069, type: 3}
   BrownSprites:
   - {fileID: 21300000, guid: 04f843495f66ed54991ff6723ca5886b, type: 3}
-  WhiteBackgroundSprites: []
+  WhiteBackgroundSprites:
+  - {fileID: 21300000, guid: ad26dd846751bee40a3bc2bc47e8ba99, type: 3}
   BlackBackgroundSprites: []
-  RockObstacleSprites: []
+  RockObstacleSprites:
+  - {fileID: 21300000, guid: 05e62fe83d53abd47b9dd3d2ae932471, type: 3}
   WoodObstacleSprites: []
   IceObstacleSprites: []
   MetalObstacleSprites: []
