@@ -85,7 +85,7 @@ public class SpriteManager : MonoBehaviour
             { Match3Enums.ObstacleType.Metal, AllMetalObstacleSprites }
         };
     }
-    public Sprite GetSprite(System.Enum enumValue, bool hasPower = false)
+    public Sprite GetRandomSprite(System.Enum enumValue, bool hasPower = false)
     {
         // Create a unique key for caching based on enum type, value and power status
         string cacheKey = $"{enumValue.GetType().Name}_{enumValue}_{hasPower}";
@@ -127,6 +127,53 @@ public class SpriteManager : MonoBehaviour
 
         return randomSprite;
     }
+
+    public Sprite GetChosenSprite(System.Enum enumValue, string spriteName)//return named sprite from the array
+    {
+        switch (enumValue)
+        {
+            case Match3Enums.TileType tileType:
+                if (tileSprites.TryGetValue(tileType, out Sprite[] tileArray))
+                {
+                    foreach (var sprite in tileArray)
+                    {
+                        if (sprite.name == spriteName)
+                        {
+                            return sprite;
+                        }
+                    }
+                }
+                break;
+
+            case Match3Enums.BackgroundType bgType:
+                if (AllbackgroundSprites.TryGetValue(bgType, out Sprite[] bgArray))
+                {
+                    foreach (var sprite in bgArray)
+                    {
+                        if (sprite.name == spriteName)
+                        {
+                            return sprite;
+                        }
+                    }
+                }
+                break;
+
+            case Match3Enums.ObstacleType obstacleType:
+                if (AllobstacleSprites.TryGetValue(obstacleType, out Sprite[] obstacleArray))
+                {
+                    foreach (var sprite in obstacleArray)
+                    {
+                        if (sprite.name == spriteName)
+                        {
+                            return sprite;
+                        }
+                    }
+                }
+                break;
+        }
+        return null;
+    }
+
     public void FlushCache()
     {
         _spriteCache.Clear();

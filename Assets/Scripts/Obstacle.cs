@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static Match3Enums;
 
 public class Obstacle : MonoBehaviour, IPoolable
 {
@@ -8,9 +9,7 @@ public class Obstacle : MonoBehaviour, IPoolable
     public float maxHP;
     public float hp;
     public Sprite sprite;
-
-
-
+    public ObstacleType type;
     public void ResetForPool()
     {
         row = -1;

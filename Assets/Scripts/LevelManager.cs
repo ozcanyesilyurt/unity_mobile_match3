@@ -12,7 +12,6 @@ public class LevelManager : MonoBehaviour
     public RectTransform backgroundContainer;   // Board backgrounds and are children of this container
     public RectTransform tilesCanvas;           // tilesContainer and playArea are on this canvas
     public RectTransform tilesContainer;        // match3 tiles and obstacles are children of this container
-
     public RectTransform playArea;              // area where tiles are visible and interactable
 
     public LevelBuildData currentLevelData;

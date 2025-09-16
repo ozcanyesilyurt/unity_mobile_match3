@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static Match3Enums;
 
 public class Background : MonoBehaviour, IPoolable
 {
     public int row;
     public int column;
     public Sprite sprite;
+    public BackgroundType type;
 
     public void ResetForPool()
     {

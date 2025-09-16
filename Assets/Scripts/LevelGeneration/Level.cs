@@ -15,13 +15,13 @@ public class Level
     #endregion
 
     #region RuntimeFields
-    GameObject[,] tiles; //for match3 tiles
-    GameObject[,] cells;//for backgrounds and obstacles
+    IPoolable[,] tiles; //for match3 tiles and obstacles
+
     #endregion
 
     #region GameobjectPlacement
-    public float cellSizeX = 100f;
-    public float cellSizeY = 100f;
+    public float cellSizeX = 120f;
+    public float cellSizeY = 120f;
     public float spacingX = 5f;
     public float spacingY = 5f;
 
