@@ -11,6 +11,7 @@ public class Level
     public TileType[] tileTypesAllowed;
     public BackgroundType[] backgroundTypesAllowed;
     public ObstacleType[] obstacleTypesAllowed;
+    public Dictionary<TilePower, float> tilePowerPercentages = new();
     #endregion
 
     #region RuntimeFields
@@ -32,6 +33,7 @@ public class Level
         this.tileTypesAllowed = data.tileTypesAllowed;
         this.backgroundTypesAllowed = data.backgroundTypesAllowed;
         this.obstacleTypesAllowed = data.obstacleTypesAllowed;
+        this.tilePowerPercentages = data.tilePowerPercentages;
 
         if (data.obstacleCountIsRandom)//check if obstacle count is random
         {

@@ -17,18 +17,18 @@ public class LevelFactory
 
     }
 
-    public Level CreateLevelBackgrounds(Level level)//use scriptable object for bg
+    public void CreateLevelBackgrounds(Level level)//use scriptable object for bg
     {
 
     }
 
-    public Level CreateLevelObstacles(Level level)//use scriptable object for obstacles
+    public void CreateLevelObstacles(Level level)//use scriptable object for obstacles
     {
 
     }
-    public Level CreateLevelTiles(Level level)
+    public void CreateLevelTiles(Level level)
     {
-        return level;
+        
     }
     public Tile CreateTile(Level level, TileType type, TilePower tilePower)
     {
@@ -44,4 +44,5 @@ public class LevelFactory
     {
 
     }
+    
 }
