@@ -15,8 +15,16 @@ public class Level
     #endregion
 
     #region RuntimeFields
-    public GameObject[] bgAndObstacles;// Background and Obstacles
-    public GameObject[] tiles;
+    GameObject[,] tiles; //for match3 tiles
+    GameObject[,] cells;//for backgrounds and obstacles
+    #endregion
+
+    #region GameobjectPlacement
+    public float cellSizeX = 100f;
+    public float cellSizeY = 100f;
+    public float spacingX = 5f;
+    public float spacingY = 5f;
+
     #endregion
 
     public Level(int rows, int columns, int obstacleCount, TileType[] tileTypesAllowed, BackgroundType[] backgroundTypesAllowed, ObstacleType[] obstacleTypesAllowed)

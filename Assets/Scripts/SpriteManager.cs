@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class SpriteManager
+public class SpriteManager : MonoBehaviour
 {
     private Dictionary<Match3Enums.TileType, Sprite[]> tileSprites;
     private Dictionary<Match3Enums.TileType, Sprite[]> tilePowerSprites;
@@ -126,5 +126,10 @@ public class SpriteManager
         _spriteCache[cacheKey] = randomSprite;
 
         return randomSprite;
+    }
+    public void FlushCache()
+    {
+        _spriteCache.Clear();
+        Debug.Log("Sprite cache has been cleared.");
     }
 }

@@ -6,29 +6,45 @@ using static Match3Enums;
 public class LevelFactory
 {
     private LevelManager levelManager;
+    private SpriteManager spriteManager;
+
+
+
+    private Level level;
+    private GameObject[,] tiles; //inside level
+    private GameObject[,] cells; //inside level
+
 
     public LevelFactory(LevelManager levelManager)
     {
         this.levelManager = levelManager;
+        this.spriteManager = levelManager.GetComponent<SpriteManager>();
+        this.spriteManager.FlushCache();
     }
 
     public Level CreateLevel(LevelBuildData levelData)
     {
-
+        this.level = new Level(levelData);
     }
 
-    public void CreateLevelBackgrounds(Level level)//use scriptable object for bg
+    public void CreateCells()
     {
 
     }
 
-    public void CreateLevelObstacles(Level level)//use scriptable object for obstacles
+    public void CreateLevelBackgrounds()//use scriptable object for bg
+    {
+
+
+    }
+
+    public void CreateLevelObstacles()//use scriptable object for obstacles
     {
 
     }
-    public void CreateLevelTiles(Level level)
+    public void CreateLevelTiles()
     {
-        
+
     }
     public Tile CreateTile(Level level, TileType type, TilePower tilePower)
     {
@@ -37,12 +53,12 @@ public class LevelFactory
 
     public void TileStartPosition(Tile tile)
     {
-        
+
     }
 
-    public void SetTileSpritesDict(Level level)//set tile sprite based on level data
+    public void SetTileSpritesDict()//set tile sprite based on level data
     {
 
     }
-    
+
 }
