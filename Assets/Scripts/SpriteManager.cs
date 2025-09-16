@@ -1,125 +1,130 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class SpriteManager : MonoBehaviour
+public class SpriteManager
 {
-    public static SpriteManager Instance;
+    private Dictionary<Match3Enums.TileType, Sprite[]> tileSprites;
+    private Dictionary<Match3Enums.TileType, Sprite[]> tilePowerSprites;
 
-    private void Awake()
+    public SpriteManager()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            InitializeDictionaries();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        InitializeDictionaries();
     }
+
 
     // Tile Sprites
-    public Sprite[] RedSprites;
-    public Sprite[] PinkSprites;
-    public Sprite[] BlueSprites;
-    public Sprite[] GreenSprites;
-    public Sprite[] YellowSprites;
-    public Sprite[] PurpleSprites;
-    public Sprite[] BrownSprites;
+    public Sprite[] AllRedSprites;
+    public Sprite[] AllPinkSprites;
+    public Sprite[] AllBlueSprites;
+    public Sprite[] AllGreenSprites;
+    public Sprite[] AllYellowSprites;
+    public Sprite[] AllPurpleSprites;
+    public Sprite[] AllBrownSprites;
+
+    // TilePower Sprites
+    public Sprite[] AllRedPowerSprites;
+    public Sprite[] AllPinkPowerSprites;
+    public Sprite[] AllBluePowerSprites;
+    public Sprite[] AllGreenPowerSprites;
+    public Sprite[] AllYellowPowerSprites;
+    public Sprite[] AllPurplePowerSprites;
+    public Sprite[] AllBrownPowerSprites;
 
     // Background Sprites
-    public Sprite[] WhiteBackgroundSprites;
-    public Sprite[] BlackBackgroundSprites;
+    public Sprite[] AllWhiteBackgroundSprites;
+    public Sprite[] AllBlackBackgroundSprites;
 
     // Obstacle Sprites
-    public Sprite[] RockObstacleSprites;
-    public Sprite[] WoodObstacleSprites;
-    public Sprite[] IceObstacleSprites;
-    public Sprite[] MetalObstacleSprites;
+    public Sprite[] AllRockObstacleSprites;
+    public Sprite[] AllWoodObstacleSprites;
+    public Sprite[] AllIceObstacleSprites;
+    public Sprite[] AllMetalObstacleSprites;
 
-    private Dictionary<Match3Enums.TileType, Sprite[]> tileSprites;
-    private Dictionary<Match3Enums.BackgroundType, Sprite[]> backgroundSprites;
-    private Dictionary<Match3Enums.ObstacleType, Sprite[]> obstacleSprites;
+    private Dictionary<Match3Enums.TileType, Sprite[]> AlltileSprites;
+    private Dictionary<Match3Enums.TileType, Sprite[]> AlltilePowerSprites;
+    private Dictionary<Match3Enums.BackgroundType, Sprite[]> AllbackgroundSprites;
+    private Dictionary<Match3Enums.ObstacleType, Sprite[]> AllobstacleSprites;
 
+    private readonly Dictionary<string, Sprite> _spriteCache = new Dictionary<string, Sprite>();
     private void InitializeDictionaries()
     {
+        // Initialize your main sprite dictionaries
         tileSprites = new Dictionary<Match3Enums.TileType, Sprite[]>
         {
-            { Match3Enums.TileType.Red, RedSprites },
-            { Match3Enums.TileType.Pink, PinkSprites },
-            { Match3Enums.TileType.Blue, BlueSprites },
-            { Match3Enums.TileType.Green, GreenSprites },
-            { Match3Enums.TileType.Yellow, YellowSprites },
-            { Match3Enums.TileType.Purple, PurpleSprites },
-            { Match3Enums.TileType.Brown, BrownSprites }
+            { Match3Enums.TileType.Red, AllRedSprites },
+            { Match3Enums.TileType.Pink, AllPinkSprites },
+            { Match3Enums.TileType.Blue, AllBlueSprites },
+            { Match3Enums.TileType.Green, AllGreenSprites },
+            { Match3Enums.TileType.Yellow, AllYellowSprites },
+            { Match3Enums.TileType.Purple, AllPurpleSprites },
+            { Match3Enums.TileType.Brown, AllBrownSprites }
         };
 
-        backgroundSprites = new Dictionary<Match3Enums.BackgroundType, Sprite[]>
+        tilePowerSprites = new Dictionary<Match3Enums.TileType, Sprite[]>
         {
-            { Match3Enums.BackgroundType.White, WhiteBackgroundSprites },
-            { Match3Enums.BackgroundType.Black, BlackBackgroundSprites }
+            { Match3Enums.TileType.Red, AllRedPowerSprites },
+            { Match3Enums.TileType.Pink, AllPinkPowerSprites },
+            { Match3Enums.TileType.Blue, AllBluePowerSprites },
+            { Match3Enums.TileType.Green, AllGreenPowerSprites },
+            { Match3Enums.TileType.Yellow, AllYellowPowerSprites },
+            { Match3Enums.TileType.Purple, AllPurplePowerSprites },
+            { Match3Enums.TileType.Brown, AllBrownPowerSprites }
         };
 
-        obstacleSprites = new Dictionary<Match3Enums.ObstacleType, Sprite[]>
+        AllbackgroundSprites = new Dictionary<Match3Enums.BackgroundType, Sprite[]>
         {
-            { Match3Enums.ObstacleType.Rock, RockObstacleSprites },
-            { Match3Enums.ObstacleType.Wood, WoodObstacleSprites },
-            { Match3Enums.ObstacleType.Ice, IceObstacleSprites },
-            { Match3Enums.ObstacleType.Metal, MetalObstacleSprites }
+            { Match3Enums.BackgroundType.White, AllWhiteBackgroundSprites },
+            { Match3Enums.BackgroundType.Black, AllBlackBackgroundSprites }
+        };
+
+        AllobstacleSprites = new Dictionary<Match3Enums.ObstacleType, Sprite[]>
+        {
+            { Match3Enums.ObstacleType.Rock, AllRockObstacleSprites },
+            { Match3Enums.ObstacleType.Wood, AllWoodObstacleSprites },
+            { Match3Enums.ObstacleType.Ice, AllIceObstacleSprites },
+            { Match3Enums.ObstacleType.Metal, AllMetalObstacleSprites }
         };
     }
-
-    public static T GetRepeatingElement<T>(T[] array, int index)
+    public Sprite GetSprite(System.Enum enumValue, bool hasPower = false)
     {
-        return array[index % array.Length];
-    }
+        // Create a unique key for caching based on enum type, value and power status
+        string cacheKey = $"{enumValue.GetType().Name}_{enumValue}_{hasPower}";
 
-    private Sprite GetRandomSprite<T>(Dictionary<T, Sprite[]> spriteDict, T type)
-    {
-        if (spriteDict.TryGetValue(type, out Sprite[] selectedArray) && selectedArray != null && selectedArray.Length > 0)
+        // Return cached sprite if it exists
+        if (_spriteCache.ContainsKey(cacheKey))
         {
-            return selectedArray[Random.Range(0, selectedArray.Length)];
+            return _spriteCache[cacheKey];
         }
-        return null;
-    }
 
-    private Sprite GetRepeatingSprite<T>(Dictionary<T, Sprite[]> spriteDict, T type, int index)
-    {
-        if (spriteDict.TryGetValue(type, out Sprite[] selectedArray) && selectedArray != null && selectedArray.Length > 0)
+        // Get appropriate sprite array based on the enum type
+        Sprite[] spriteArray = null;
+
+        if (enumValue is Match3Enums.TileType tileType)
         {
-            return GetRepeatingElement(selectedArray, index);
+            spriteArray = hasPower ? tilePowerSprites[tileType] : tileSprites[tileType];
         }
-        return null;
-    }
+        else if (enumValue is Match3Enums.BackgroundType bgType)
+        {
+            spriteArray = AllbackgroundSprites[bgType];
+        }
+        else if (enumValue is Match3Enums.ObstacleType obstacleType)
+        {
+            spriteArray = AllobstacleSprites[obstacleType];
+        }
 
-    public Sprite GetRandomSpriteTileType(Match3Enums.TileType type)
-    {
-        return GetRandomSprite(tileSprites, type);
-    }
+        // If no sprite array found or it's empty, return null
+        if (spriteArray == null || spriteArray.Length == 0)
+        {
+            Debug.LogWarning($"No sprites found for {enumValue}");
+            return null;
+        }
 
-    public Sprite GetRandomSpriteBackground(Match3Enums.BackgroundType type)
-    {
-        return GetRandomSprite(backgroundSprites, type);
-    }
+        // Get a random sprite from the array
+        Sprite randomSprite = spriteArray[Random.Range(0, spriteArray.Length)];
 
-    public Sprite GetRandomSpriteObstacle(Match3Enums.ObstacleType type)
-    {
-        return GetRandomSprite(obstacleSprites, type);
-    }
+        // Cache the sprite for future use
+        _spriteCache[cacheKey] = randomSprite;
 
-    public Sprite GetRepeatingSpriteTileType(Match3Enums.TileType type, int index)
-    {
-        return GetRepeatingSprite(tileSprites, type, index);
-    }
-
-    public Sprite GetRepeatingSpriteBackground(Match3Enums.BackgroundType type, int index)
-    {
-        return GetRepeatingSprite(backgroundSprites, type, index);
-    }
-
-    public Sprite GetRepeatingSpriteObstacle(Match3Enums.ObstacleType type, int index)
-    {
-        return GetRepeatingSprite(obstacleSprites, type, index);
+        return randomSprite;
     }
 }
