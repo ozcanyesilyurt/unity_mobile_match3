@@ -12,10 +12,12 @@ public class Level
     public BackgroundType[] backgroundTypesAllowed;
     public ObstacleType[] obstacleTypesAllowed;
     public Dictionary<TilePower, float> tilePowerPercentages = new();
+    
     #endregion
 
     #region RuntimeFields
     IPoolable[,] tiles; //for match3 tiles and obstacles
+    IPoolable[,] backgrounds; //for background tiles
 
     #endregion
 

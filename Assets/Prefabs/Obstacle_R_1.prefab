@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7120748515830448859}
   - component: {fileID: 524075042589577441}
   - component: {fileID: 1213594549540971787}
+  - component: {fileID: -2064598297825742844}
   m_Layer: 6
   m_Name: Obstacle_R_1
   m_TagString: Untagged
@@ -75,3 +76,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-2064598297825742844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149271629102356255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d24197a272de844bf252bf99c5dc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 0
+  column: 0
+  maxHP: 1
+  hp: 1
+  sprite: {fileID: 0}
+  type: 0

@@ -5,12 +5,12 @@ using DG.Tweening;
 
 public class Tile : MonoBehaviour, IPoolable
 {
-    public int row;
-    public int column;
-    public TilePower power;
-    public TileType type;
-    public Sprite sprite;
-    public float speed = 0.2f; //speed to move tile one row or column
+    [field: SerializeField] public int row { get; set; }
+    [field: SerializeField] public int column { get; set; }
+    [field: SerializeField] public TilePower power { get; set; }
+    [field: SerializeField] public TileType type { get; set; }
+    [field: SerializeField] public Sprite sprite { get; set; }
+    [field: SerializeField] public float speed { get; set; } = 0.2f; //speed to move tile one row or column
 
     public void ResetForPool()
     {

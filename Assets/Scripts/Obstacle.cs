@@ -4,12 +4,12 @@ using static Match3Enums;
 
 public class Obstacle : MonoBehaviour, IPoolable
 {
-    public int row;
-    public int column;
-    public float maxHP;
-    public float hp;
-    public Sprite sprite;
-    public ObstacleType type;
+    [field: SerializeField] public int row { get; set; }
+    [field: SerializeField] public int column { get; set; }
+    [field: SerializeField] public float maxHP { get; set; }
+    [field: SerializeField] public float hp { get; set; }
+    [field: SerializeField] public Sprite sprite { get; set; }
+    [field: SerializeField] public ObstacleType type { get; set; }
     public void ResetForPool()
     {
         row = -1;

@@ -4,10 +4,10 @@ using static Match3Enums;
 
 public class Background : MonoBehaviour, IPoolable
 {
-    public int row;
-    public int column;
-    public Sprite sprite;
-    public BackgroundType type;
+    [field: SerializeField] public int row { get; set; }
+    [field: SerializeField] public int column { get; set; }
+    [field: SerializeField] public Sprite sprite { get; set; }
+    [field: SerializeField] public BackgroundType type { get; set; }
 
     public void ResetForPool()
     {

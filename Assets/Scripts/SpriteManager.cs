@@ -5,12 +5,10 @@ public class SpriteManager : MonoBehaviour
 {
     private Dictionary<Match3Enums.TileType, Sprite[]> tileSprites;
     private Dictionary<Match3Enums.TileType, Sprite[]> tilePowerSprites;
-
-    public SpriteManager()
+    private void Awake()
     {
         InitializeDictionaries();
     }
-
 
     // Tile Sprites
     public Sprite[] AllRedSprites;
