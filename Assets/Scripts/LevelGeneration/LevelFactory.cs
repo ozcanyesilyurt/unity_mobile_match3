@@ -27,9 +27,11 @@ public class LevelFactory
 
     public Level CreateLevel(LevelBuildData levelData)
     {
+        tilesAndObstacles = new IPoolable[levelData.rowCount + extraRows, levelData.columnCount];
         this.level = new Level(levelData);
         ConfigureLayoutContainers();
         CreateLevelBackgrounds();
+        CreateLevelObstacles();
         return this.level;
     }
 
@@ -58,12 +60,57 @@ public class LevelFactory
 
     public void CreateLevelObstacles() // use scriptable object for obstacles
     {
+        int capacity = level.rowCount * level.columnCount;
+        int totalObstacles = Mathf.Min(level.obstacleCount, capacity);
 
+        int placedObstacles = 0;
+        int safety = 0, safetyMax = capacity * 4;
+
+        while (placedObstacles < totalObstacles && safety++ < safetyMax)
+        {
+            int obstacleRow = Random.Range(extraRows, level.rowCount + extraRows);
+            int obstacleColumn = Random.Range(0, level.columnCount);
+
+            if (tilesAndObstacles[obstacleRow, obstacleColumn] != null)
+                continue; // already occupied, try another cell
+
+            int maxHP = 3;
+            GameObject obstacleObj = CreateObstacle(obstacleRow, obstacleColumn, maxHP);
+            PlaceIPoolableInLevel(obstacleObj.GetComponent<IPoolable>());
+            tilesAndObstacles[obstacleRow, obstacleColumn] = obstacleObj.GetComponent<IPoolable>();
+            placedObstacles++;
+        }
+
+        if (placedObstacles < totalObstacles)
+            Debug.LogWarning($"Placed {placedObstacles}/{totalObstacles} obstacles (ran out of attempts).");
     }
 
     public void CreateLevelTiles()
     {
 
+    }
+
+    public GameObject CreateTile(int row, int column)
+    {
+
+
+        return new GameObject();
+    }
+
+    public GameObject CreateObstacle(int row, int column, int maxHP)
+    {
+        GameObject obstacleObj = ObjectPoolManager.SpawnObject(levelManager.obstaclePrefab, tilesContainer);
+        Obstacle obstacle = obstacleObj.GetComponent<Obstacle>();
+        obstacle.row = row;
+        obstacle.column = column;
+        ObstacleType obstacleType = level.obstacleTypesAllowed[Range(0, level.obstacleTypesAllowed.Length)];
+        Sprite sprite = spriteManager.GetRandomSprite(obstacleType);
+        obstacle.sprite = sprite;
+        obstacle.type = obstacleType;
+        obstacle.maxHP = maxHP;
+
+        obstacleObj.GetComponent<Image>().sprite = sprite;
+        return obstacleObj;
     }
 
     public void PlaceIPoolableInLevel(IPoolable obj)
@@ -110,22 +157,22 @@ public class LevelFactory
     /// Match3_Max_Play_Area, and then makes Match3_Board_Tiles taller by extraRows only
     /// on the TOP side (so bottoms line up).
     /// </summary>
-        public void ConfigureLayoutContainers()
+    public void ConfigureLayoutContainers()
     {
         if (level == null || playArea == null || tilesContainer == null) return;
 
         RectTransform maxPlayArea = playArea.parent as RectTransform; // Match3_Max_Play_Area
 
         // 1) Natural board size from rows/cols (unscaled)
-        float boardWidth  = level.columnCount * level.cellSizeX + Mathf.Max(0, level.columnCount - 1) * level.spacingX;
-        float boardHeight = level.rowCount   * level.cellSizeY + Mathf.Max(0, level.rowCount   - 1) * level.spacingY;
+        float boardWidth = level.columnCount * level.cellSizeX + Mathf.Max(0, level.columnCount - 1) * level.spacingX;
+        float boardHeight = level.rowCount * level.cellSizeY + Mathf.Max(0, level.rowCount - 1) * level.spacingY;
 
         // 2) Constrain Play_Area to Max_Play_Area
         float maxW = maxPlayArea.rect.width;
         float maxH = maxPlayArea.rect.height;
         float scale = Mathf.Min(maxW / boardWidth, maxH / boardHeight, 1f);
 
-        float playW = boardWidth  * scale;
+        float playW = boardWidth * scale;
         float playH = boardHeight * scale;
 
         // IMPORTANT: scale the metrics used by placement/rendering
@@ -133,13 +180,13 @@ public class LevelFactory
         {
             level.cellSizeX *= scale;
             level.cellSizeY *= scale;
-            level.spacingX  *= scale;
-            level.spacingY  *= scale;
+            level.spacingX *= scale;
+            level.spacingY *= scale;
         }
 
         // Center Play_Area in Max_Play_Area (center anchors/pivot)
         playArea.anchorMin = playArea.anchorMax = new Vector2(0.5f, 0.5f);
-        playArea.pivot     = new Vector2(0.5f, 0.5f);
+        playArea.pivot = new Vector2(0.5f, 0.5f);
         playArea.sizeDelta = new Vector2(playW, playH);
         playArea.anchoredPosition = Vector2.zero;
 
@@ -150,7 +197,7 @@ public class LevelFactory
         float boardTilesH = playH + extraH;
 
         tilesContainer.anchorMin = tilesContainer.anchorMax = new Vector2(0.5f, 0.5f);
-        tilesContainer.pivot     = new Vector2(0.5f, 0.5f);
+        tilesContainer.pivot = new Vector2(0.5f, 0.5f);
         tilesContainer.sizeDelta = new Vector2(boardTilesW, boardTilesH);
 
         // Align bottoms; extend upward by extraRows
