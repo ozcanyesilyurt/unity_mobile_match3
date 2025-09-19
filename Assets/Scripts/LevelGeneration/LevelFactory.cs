@@ -12,12 +12,13 @@ public class LevelFactory
     RectTransform playArea;
 
     private Level level;
-    private IPoolable[,] tilesAndObstacles; // for match3 tiles and obstacles inside level
+    public IPoolable[,] tilesAndObstacles; // for match3 tiles and obstacles inside level
 
-    private int extraRows = 2; // extra rows above the visible play area for spawning tiles. No extra columns needed
+    private int extraRows; // extra rows above the visible play area for spawning tiles. No extra columns needed
 
     public LevelFactory(LevelManager levelManager)
     {
+        this.extraRows = levelManager.extraRows;
         this.levelManager = levelManager;
         this.tilesContainer = levelManager.tilesContainer;
         this.playArea = levelManager.playArea;
