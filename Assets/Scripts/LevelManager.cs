@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Match3Enums;
 
 public class LevelManager : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         CreateLevel(currentLevelData);
-        FindMatches();
+        LevelStart();
     }
 
 
@@ -61,7 +62,7 @@ public class LevelManager : MonoBehaviour
         // repeat if new matches found
         // if no new matches, wait for player input
     }
-    public void FindMatches()
+    public void FindMatches(bool includeExtraRows = false)
     {
         if (currentLevel == null || tilesContainer == null || tilesAndObstacles == null)
         {
@@ -69,8 +70,15 @@ public class LevelManager : MonoBehaviour
             return;
         }
         _matchedTiles.Clear();
-
-        int rowsStart = extraRows;
+        int rowsStart;
+        if (includeExtraRows == false)
+        {
+            rowsStart = extraRows;
+        }
+        else
+        {
+            rowsStart = 0;
+        }
         int rowsEnd = extraRows + currentLevel.rowCount; // exclusive
         int cols = currentLevel.columnCount;
         // Horizontal runs
@@ -160,9 +168,22 @@ public class LevelManager : MonoBehaviour
                 ObjectPoolManager.ReturnObjectToPool(tile.gameObject);
             }
         }
-        _matchedTiles.Clear();
+        //_matchedTiles.Clear();
     }
-    
+
+    public float ScoreTiles()
+    {
+        float totalScore = 0;
+        foreach (var tile in _matchedTiles)
+        {
+            if (tile != null)
+            {
+                totalScore += tile.scoreValue;
+            }
+        }
+        return totalScore;
+    }
+
     private Tile GetTileAt(int row, int col)
     {
         if (tilesAndObstacles == null) return null;
@@ -171,5 +192,40 @@ public class LevelManager : MonoBehaviour
             col >= tilesAndObstacles.GetLength(1)) return null;
 
         return tilesAndObstacles[row, col] as Tile; // obstacles/backgrounds => null
+    }
+
+    public void LevelStart()
+    {
+        FindMatches(true);
+        RemoveMatchedTiles();
+        FillEmptyTiles();
+    }
+
+    public void TryMatch() // player made a move, check for matches
+    {
+
+    }
+
+    public void FillEmptyTiles(bool onlyExtraRows = false)
+    {
+        foreach (var tile in MatchedTiles)
+        {
+            if (tile == null) continue;
+
+            // If caller requested only extra rows, skip tiles that are in the visible area
+            if (onlyExtraRows && tile.row >= extraRows) continue;
+
+            // Build allowed types and exclude the replaced tile's type
+            var allowedTypes = new List<TileType>(currentLevel.tileTypesAllowed);
+            allowedTypes.Remove(tile.type);
+
+            // Fallback if removing left us with no options
+            TileType chosenType;
+            chosenType = allowedTypes[Random.Range(0, allowedTypes.Count)];
+
+            Debug.Log($"FillEmptyTiles: Filling empty tile at ({tile.row}, {tile.column}) with {chosenType}");
+            GameObject newTileObj = levelFactory.CreateTile(tile.row, tile.column, chosenType);
+            tilesAndObstacles[tile.row, tile.column] = newTileObj.GetComponent<Tile>();
+        }
     }
 }

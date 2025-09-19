@@ -135,12 +135,6 @@ public class ObjectPoolManager : MonoBehaviour
         }
         else
         {
-            var poolable = obj.GetComponent<IPoolable>();
-            if (poolable != null)
-            {
-                poolable.ResetForPool();
-            }
-
             obj.SetActive(false);
             pool.InactiveObjects.Add(obj);
         }

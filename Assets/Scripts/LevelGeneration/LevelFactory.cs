@@ -104,7 +104,7 @@ public class LevelFactory
 
     }
 
-    public GameObject CreateTile(int row, int column, TilePower tilePower = TilePower.Normal)
+    public GameObject CreateTile(int row, int column, TileType? tileType = null, TilePower tilePower = TilePower.Normal)
     {
         GameObject tileObj = ObjectPoolManager.SpawnObject(levelManager.tilePrefab, tilesContainer);
         Tile tile = tileObj.GetComponent<Tile>();
@@ -112,19 +112,20 @@ public class LevelFactory
         tile.column = column;
         tile.power = tilePower;
 
-        TileType tileType = level.tileTypesAllowed[Range(0, level.tileTypesAllowed.Length)];
+        // If tileType is not specified, pick a random allowed type
+        TileType finalType = tileType ?? level.tileTypesAllowed[Range(0, level.tileTypesAllowed.Length)];
         Sprite sprite;
         if (tilePower != TilePower.Normal)
         {
-            sprite = spriteManager.GetRandomSprite(tileType, true);
+            sprite = spriteManager.GetRandomSprite(finalType, true);
         }
         else
         {
-            sprite = spriteManager.GetRandomSprite(tileType);
+            sprite = spriteManager.GetRandomSprite(finalType);
         }
 
         tile.sprite = sprite;
-        tile.type = tileType;
+        tile.type = finalType;
 
         tileObj.GetComponent<Image>().sprite = sprite;
         return tileObj;
