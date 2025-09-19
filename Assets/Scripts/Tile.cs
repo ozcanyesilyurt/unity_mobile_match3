@@ -14,8 +14,8 @@ public class Tile : MonoBehaviour, IPoolable
 
     public void ResetForPool()
     {
-        row = -1;
-        column = -1;
+        row = -10;
+        column = -10;
         power = TilePower.Normal;
         type = TileType.None;
         sprite = null;

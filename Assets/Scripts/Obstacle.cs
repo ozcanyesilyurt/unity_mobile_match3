@@ -12,8 +12,8 @@ public class Obstacle : MonoBehaviour, IPoolable
     [field: SerializeField] public ObstacleType type { get; set; }
     public void ResetForPool()
     {
-        row = -1;
-        column = -1;
+        row = -10;
+        column = -10;
         hp = maxHP;
         sprite = null;
         GetComponent<Image>().sprite = null;

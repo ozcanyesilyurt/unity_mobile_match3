@@ -32,6 +32,7 @@ public class LevelFactory
         ConfigureLayoutContainers();
         CreateLevelBackgrounds();
         CreateLevelObstacles();
+        CreateLevelTiles();
         return this.level;
     }
 
@@ -87,14 +88,45 @@ public class LevelFactory
 
     public void CreateLevelTiles()
     {
+        for (int r = 0; r < level.rowCount + extraRows; r++)
+        {
+            for (int c = 0; c < level.columnCount; c++)
+            {
+                if (tilesAndObstacles[r, c] != null)
+                    continue; // already occupied by an obstacle
+
+                GameObject tileObj = CreateTile(r, c);
+                PlaceIPoolableInLevel(tileObj.GetComponent<Tile>());
+                tilesAndObstacles[r, c] = tileObj.GetComponent<Tile>();
+            }
+        }
 
     }
 
-    public GameObject CreateTile(int row, int column)
+    public GameObject CreateTile(int row, int column, TilePower tilePower = TilePower.Normal)
     {
+        GameObject tileObj = ObjectPoolManager.SpawnObject(levelManager.tilePrefab, tilesContainer);
+        Tile tile = tileObj.GetComponent<Tile>();
+        tile.row = row;
+        tile.column = column;
+        tile.power = tilePower;
 
+        TileType tileType = level.tileTypesAllowed[Range(0, level.tileTypesAllowed.Length)];
+        Sprite sprite;
+        if (tilePower != TilePower.Normal)
+        {
+            sprite = spriteManager.GetRandomSprite(tileType, true);
+        }
+        else
+        {
+            sprite = spriteManager.GetRandomSprite(tileType);
+        }
 
-        return new GameObject();
+        tile.sprite = sprite;
+        tile.type = tileType;
+
+        tileObj.GetComponent<Image>().sprite = sprite;
+        return tileObj;
     }
 
     public GameObject CreateObstacle(int row, int column, int maxHP)

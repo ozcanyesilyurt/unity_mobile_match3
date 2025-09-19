@@ -11,8 +11,8 @@ public class Background : MonoBehaviour, IPoolable
 
     public void ResetForPool()
     {
-        row = -1;
-        column = -1;
+        row = -10;
+        column = -10;
         sprite = null;
         GetComponent<Image>().sprite = null;
         StopAllCoroutines();
