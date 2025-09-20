@@ -41,6 +41,12 @@ public class LevelManager : MonoBehaviour
         CreateLevel(currentLevelData);
         LevelStart();
     }
+    public void LevelStart()
+    {
+        FindMatches(true);
+        RemoveMatchedTiles();
+        FillEmptyTiles();
+    }
 
 
 
@@ -194,12 +200,6 @@ public class LevelManager : MonoBehaviour
         return tilesAndObstacles[row, col] as Tile; // obstacles/backgrounds => null
     }
 
-    public void LevelStart()
-    {
-        FindMatches(true);
-        RemoveMatchedTiles();
-        FillEmptyTiles();
-    }
 
     public void TryMatch() // player made a move, check for matches
     {

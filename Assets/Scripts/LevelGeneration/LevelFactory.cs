@@ -101,7 +101,6 @@ public class LevelFactory
                 tilesAndObstacles[r, c] = tileObj.GetComponent<Tile>();
             }
         }
-
     }
 
     public GameObject CreateTile(int row, int column, TileType? tileType = null, TilePower tilePower = TilePower.Normal)
