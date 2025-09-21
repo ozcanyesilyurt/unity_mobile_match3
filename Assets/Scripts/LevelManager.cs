@@ -213,7 +213,7 @@ public class LevelManager : MonoBehaviour
         return totalScore;
     }
 
-    private Tile GetTileAt(int row, int col)
+    public Tile GetTileAt(int row, int col)
     {
         if (tilesAndObstacles == null) return null;
         if (row < 0 || col < 0 ||
@@ -221,12 +221,6 @@ public class LevelManager : MonoBehaviour
             col >= tilesAndObstacles.GetLength(1)) return null;
 
         return tilesAndObstacles[row, col] as Tile; // obstacles/backgrounds => null
-    }
-
-
-    public void TryMatch() // player made a move, check for matches
-    {
-
     }
 
     public void FillEmptyTiles(List<(int row, int column, TileType prevType)> positions, bool onlyExtraRows = false)
@@ -258,5 +252,26 @@ public class LevelManager : MonoBehaviour
             GameObject newTileObj = levelFactory.CreateTile(row, col, chosenType);
             tilesAndObstacles[row, col] = newTileObj.GetComponent<Tile>();
         }
+    }
+    public void TrySwap(Tile a, Tile b) // player attempted to swap two tiles
+    {
+
+    }
+
+
+    public void TryMatch(Tile a, Tile b) // Tryswap calls this after swap animation
+    {
+
+    }
+
+    public void CancelSwap(Tile a, Tile b) // swap did not produce a match, swap back
+    {
+
+    }
+    public void RequestSwap(Tile fromTile, Vector2Int dir)
+    {
+        Debug.Log($"RequestSwap from ({fromTile.row},{fromTile.column}) dir={dir}");
+        // Step 2: we'll fetch the neighbor at (row+dir.y, col+dir.x),
+        // validate, animate the swap, then call TrySwap(a,b) or CancelSwap(a,b).
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9196146776441905105}
   - component: {fileID: 4833047323801942299}
   - component: {fileID: 6983245934575437365}
+  - component: {fileID: 2598724803807565119}
   m_Layer: 6
   m_Name: Tile
   m_TagString: Untagged
@@ -88,9 +89,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a66bd1f12ad9cf4e8a2b87bdb90375e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  row: 0
-  column: 0
-  power: 0
-  type: 0
-  sprite: {fileID: 21300000, guid: d8730568ac1057c4991ab357c5dd594f, type: 3}
-  speed: 0.2
+  <row>k__BackingField: 0
+  <column>k__BackingField: 0
+  <power>k__BackingField: 0
+  <type>k__BackingField: 0
+  <sprite>k__BackingField: {fileID: 0}
+  <speed>k__BackingField: 0.2
+  <scoreValue>k__BackingField: 1
+--- !u!114 &2598724803807565119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625627562158717621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ca32b9bd9fbde43bbb1c710bbda401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeThresholdScreenPx: 40
+  oneSwapPerDrag: 1
+  rootCanvas: {fileID: 0}
+  canvasScaler: {fileID: 0}

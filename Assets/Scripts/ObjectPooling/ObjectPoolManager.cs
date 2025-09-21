@@ -136,6 +136,7 @@ public class ObjectPoolManager : MonoBehaviour
         else
         {
             obj.SetActive(false);
+            obj.GetComponent<IPoolable>().ResetForPool();
             pool.InactiveObjects.Add(obj);
         }
 
