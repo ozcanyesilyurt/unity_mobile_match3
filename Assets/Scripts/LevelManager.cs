@@ -43,9 +43,7 @@ public class LevelManager : MonoBehaviour
     }
     public void LevelStart()
     {
-        FindMatches(true);
-        RemoveMatchedTiles();
-        FillEmptyTiles();
+        MakeMatch(awardScore: false);
     }
 
 
@@ -57,17 +55,41 @@ public class LevelManager : MonoBehaviour
         this.tilesAndObstacles = levelFactory.tilesAndObstacles;
     }
 
-    public void MakeMatch()
+    public void MakeMatch(bool awardScore = true)
     {
-        Debug.Log("MakeMatch");
-        // find matches
-        // remove matched tiles
-        // drop tiles above
-        // fill empty spaces with new tiles
-        // check for new matches
-        // repeat if new matches found
-        // if no new matches, wait for player input
+        // Repeat until no new matches are produced by fills (handles cascades)
+        while (true)
+        {
+            FindMatches(true);
+
+            if (_matchedTiles.Count == 0)
+                break;
+
+            if (awardScore)
+            {
+                float stepScore = ScoreTiles();
+                Debug.Log($"MakeMatch: matched {_matchedTiles.Count} tiles, score +{stepScore}");
+                // fire events here if desired (only when awardScore == true)
+            }
+            else
+            {
+                Debug.Log($"MakeMatch: resolving {_matchedTiles.Count} initial matched tiles (no score)");
+            }
+
+            var matchedInfos = new List<(int row, int column, TileType prevType)>();
+            foreach (var tile in _matchedTiles)
+            {
+                if (tile == null) continue;
+                matchedInfos.Add((tile.row, tile.column, tile.type));
+            }
+
+            RemoveMatchedTiles();
+            FillEmptyTiles(matchedInfos);
+        }
+
+        Debug.Log("MakeMatch: no more cascades.");
     }
+
     public void FindMatches(bool includeExtraRows = false)
     {
         if (currentLevel == null || tilesContainer == null || tilesAndObstacles == null)
@@ -174,8 +196,9 @@ public class LevelManager : MonoBehaviour
                 ObjectPoolManager.ReturnObjectToPool(tile.gameObject);
             }
         }
-        //_matchedTiles.Clear();
+
     }
+    // ...existing code...
 
     public float ScoreTiles()
     {
@@ -206,26 +229,34 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public void FillEmptyTiles(bool onlyExtraRows = false)
+    public void FillEmptyTiles(List<(int row, int column, TileType prevType)> positions, bool onlyExtraRows = false)
     {
-        foreach (var tile in MatchedTiles)
+        if (positions == null || positions.Count == 0) return;
+        foreach (var info in positions)
         {
-            if (tile == null) continue;
-
-            // If caller requested only extra rows, skip tiles that are in the visible area
-            if (onlyExtraRows && tile.row >= extraRows) continue;
+            int row = info.row;
+            int col = info.column;
+            if (onlyExtraRows && row >= extraRows) continue;
 
             // Build allowed types and exclude the replaced tile's type
             var allowedTypes = new List<TileType>(currentLevel.tileTypesAllowed);
-            allowedTypes.Remove(tile.type);
+            allowedTypes.Remove(info.prevType);
 
             // Fallback if removing left us with no options
             TileType chosenType;
-            chosenType = allowedTypes[Random.Range(0, allowedTypes.Count)];
+            if (allowedTypes.Count == 0)
+            {
+                var fallback = currentLevel.tileTypesAllowed;
+                chosenType = fallback[Random.Range(0, fallback.Length)];
+            }
+            else
+            {
+                chosenType = allowedTypes[Random.Range(0, allowedTypes.Count)];
+            }
 
-            Debug.Log($"FillEmptyTiles: Filling empty tile at ({tile.row}, {tile.column}) with {chosenType}");
-            GameObject newTileObj = levelFactory.CreateTile(tile.row, tile.column, chosenType);
-            tilesAndObstacles[tile.row, tile.column] = newTileObj.GetComponent<Tile>();
+            Debug.Log($"FillEmptyTiles: Filling empty tile at ({row}, {col}) with {chosenType}");
+            GameObject newTileObj = levelFactory.CreateTile(row, col, chosenType);
+            tilesAndObstacles[row, col] = newTileObj.GetComponent<Tile>();
         }
     }
 }
