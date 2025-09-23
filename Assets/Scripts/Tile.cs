@@ -27,9 +27,26 @@ public class Tile : MonoBehaviour, IPoolable
         transform.DOKill();
     }
 
-    public void Move(int newRow, int newColumn)//tween to new position
+    // Animate tile to new grid coordinates (uses LevelManager to compute target anchored position).
+    // Returns the Tween so callers can join/wait.
+    public Tween Move(int newRow, int newColumn)
     {
+        var rt = GetComponent<RectTransform>();
+        if (rt == null || LevelManager.Instance == null || LevelManager.Instance.currentLevel == null)
+        {
+            // fallback: just set coordinates and return a completed tween
+            NewCoordinates(newRow, newColumn);
+            return DOVirtual.DelayedCall(0f, () => { });
+        }
 
+        // Compute target anchored position via LevelManager helper
+        Vector3 target = LevelManager.Instance.GetAnchoredPositionFor(newRow, newColumn);
+
+        // update logical coords immediately so other logic reads consistent state while animation runs
+        NewCoordinates(newRow, newColumn);
+
+        // animate anchored position (3D) — uses tile.speed as duration
+        return rt.DOAnchorPos3D(target, speed).SetEase(Ease.InOutSine);
     }
 
     public void NewCoordinates(int row, int column)

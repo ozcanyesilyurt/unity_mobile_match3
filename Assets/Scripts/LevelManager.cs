@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using static Match3Enums;
@@ -198,7 +199,6 @@ public class LevelManager : MonoBehaviour
         }
 
     }
-    // ...existing code...
 
     public float ScoreTiles()
     {
@@ -253,25 +253,151 @@ public class LevelManager : MonoBehaviour
             tilesAndObstacles[row, col] = newTileObj.GetComponent<Tile>();
         }
     }
-    public void TrySwap(Tile a, Tile b) // player attempted to swap two tiles
+    public Vector3 GetAnchoredPositionFor(int row, int column)
     {
+        if (currentLevel == null) return Vector3.zero;
 
+        float stepX = currentLevel.cellSizeX + currentLevel.spacingX;
+        float stepY = currentLevel.cellSizeY + currentLevel.spacingY;
+
+        int cols = currentLevel.columnCount;
+        float totalGridWidth = cols * currentLevel.cellSizeX + (cols - 1) * currentLevel.spacingX;
+
+        float x = -totalGridWidth / 2f + (currentLevel.cellSizeX / 2f) + column * stepX;
+        float y = -(currentLevel.cellSizeY / 2f) - row * stepY;
+
+        return new Vector3(x, y, 0f);
+    }
+    public void TrySwap(Tile a, Tile b)    {
+    if (a == null || b == null) return;
+
+    // adjacency
+    int dr = Mathf.Abs(a.row - b.row);
+    int dc = Mathf.Abs(a.column - b.column);
+    if (!((dr == 1 && dc == 0) || (dr == 0 && dc == 1))) return;
+
+    // store originals
+    int aRowOrig = a.row, aColOrig = a.column;
+    int bRowOrig = b.row, bColOrig = b.column;
+
+    // DEBUG: dump the pair + surrounding row/col so you can see what's actually on the board
+    Debug.Log($"TrySwap: swapping A({aRowOrig},{aColOrig}) type={a.type}  <->  B({bRowOrig},{bColOrig}) type={b.type}");
+    if (tilesAndObstacles != null)
+    {
+        Tile tAonBoard = tilesAndObstacles[aRowOrig, aColOrig] as Tile;
+        Tile tBonBoard = tilesAndObstacles[bRowOrig, bColOrig] as Tile;
+        Debug.Log($"Board before swap: at A => { (tAonBoard!=null ? tAonBoard.type.ToString() : "null") }, at B => { (tBonBoard!=null ? tBonBoard.type.ToString() : "null") }");
     }
 
+    // swap in the board array
+    tilesAndObstacles[aRowOrig, aColOrig] = b;
+    tilesAndObstacles[bRowOrig, bColOrig] = a;
 
-    public void TryMatch(Tile a, Tile b) // Tryswap calls this after swap animation
+    // update logical coords (so FindMatches reads the swapped state after animation)
+    a.NewCoordinates(bRowOrig, bColOrig);
+    b.NewCoordinates(aRowOrig, aColOrig);
+
+    // DEBUG: verify board after swap
+    if (tilesAndObstacles != null)
     {
-
+        Tile tAonBoard = tilesAndObstacles[bRowOrig, bColOrig] as Tile; // should be 'a' now
+        Tile tBonBoard = tilesAndObstacles[aRowOrig, aColOrig] as Tile; // should be 'b' now
+        Debug.Log($"Board after swap: at new Apos({bRowOrig},{bColOrig}) => { (tAonBoard!=null ? tAonBoard.type.ToString() : "null") }, at new Bpos({aRowOrig},{aColOrig}) => { (tBonBoard!=null ? tBonBoard.type.ToString() : "null") }");
     }
 
-    public void CancelSwap(Tile a, Tile b) // swap did not produce a match, swap back
-    {
+    Tween ta = a.Move(bRowOrig, bColOrig);
+    Tween tb = b.Move(aRowOrig, aColOrig);
 
+    Sequence seq = DOTween.Sequence();
+    seq.Join(ta);
+    seq.Join(tb);
+    seq.OnComplete(() =>
+    {
+        // DEBUG: right before TryMatch, dump the two tiles
+        Debug.Log($"TrySwap.OnComplete: A now at ({a.row},{a.column}) type={a.type}  B now at ({b.row},{b.column}) type={b.type}");
+        TryMatch(a, b, aRowOrig, aColOrig, bRowOrig, bColOrig);
+    });
+}
+
+
+    // TryMatch called after swap animation; this overload receives originals so it can CancelSwap
+    private void TryMatch(Tile a, Tile b, int aRowOrig, int aColOrig, int bRowOrig, int bColOrig)
+    {
+        // detect matches on the current board (swapped state)
+        FindMatches(includeExtraRows: false);
+
+        if (_matchedTiles.Count > 0)
+        {
+            // we have matches: resolve them (award score + cascades)
+            MakeMatch(awardScore: true);
+            // optionally notify listeners:
+            Match3Events.OnSwapSuccess?.Invoke();
+        }
+        else
+        {
+            // no match: revert the swap visually and in board data
+            CancelSwap(a, b, aRowOrig, aColOrig, bRowOrig, bColOrig);
+            Match3Events.OnSwapCancel?.Invoke();
+        }
     }
+
+    // keep original signature as a convenience (calls overload)
+    public void TryMatch(Tile a, Tile b)
+    {
+        // fallback: call FindMatches and resolve — no revert possible here
+        FindMatches(includeExtraRows: false);
+        if (_matchedTiles.Count > 0) MakeMatch(awardScore: true);
+    }
+
+    // swap did not produce a match, swap back (overload with original coords)
+    public void CancelSwap(Tile a, Tile b, int aRowOrig, int aColOrig, int bRowOrig, int bColOrig)
+    {
+        if (a == null || b == null) return;
+
+        // Place objects back in the board array at their original positions
+        tilesAndObstacles[aRowOrig, aColOrig] = a;
+        tilesAndObstacles[bRowOrig, bColOrig] = b;
+
+        // animate tiles back to their original positions and update their logical coords
+        a.NewCoordinates(aRowOrig, aColOrig);
+        b.NewCoordinates(bRowOrig, bColOrig);
+
+        Tween ta = a.Move(aRowOrig, aColOrig);
+        Tween tb = b.Move(bRowOrig, bColOrig);
+
+        Sequence seq = DOTween.Sequence();
+        seq.Join(ta);
+        seq.Join(tb);
+        // optional: on complete, you can allow player input again or fire an event
+    }
+
+    // keep original CancelSwap signature (no-op wrapper)
+    public void CancelSwap(Tile a, Tile b)
+    {
+        // no original positions known — just log
+        Debug.LogWarning("CancelSwap called without original positions. No action taken.");
+    }
+
     public void RequestSwap(Tile fromTile, Vector2Int dir)
     {
         Debug.Log($"RequestSwap from ({fromTile.row},{fromTile.column}) dir={dir}");
-        // Step 2: we'll fetch the neighbor at (row+dir.y, col+dir.x),
-        // validate, animate the swap, then call TrySwap(a,b) or CancelSwap(a,b).
+        if (fromTile == null) return;
+
+        // NOTE: screen-space Y and board-row Y have opposite sign.
+        // Screen: up = +Y, down = -Y. Board rows increase downward.
+        // So convert by subtracting dir.y when computing the neighbor row.
+        int neighborRow = fromTile.row - dir.y;
+        int neighborCol = fromTile.column + dir.x;
+
+        Tile neighbor = GetTileAt(neighborRow, neighborCol);
+        if (neighbor == null)
+        {
+            Debug.Log("RequestSwap: neighbor not valid (out of bounds or not a tile).");
+            return;
+        }
+
+        // forward to TrySwap -> animation -> TryMatch/CancelSwap flow
+        TrySwap(fromTile, neighbor);
+        Match3Events.OnTrySwap?.Invoke();
     }
 }
