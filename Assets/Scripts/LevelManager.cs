@@ -352,7 +352,7 @@ public class LevelManager : MonoBehaviour
             .Join(tweenB)
             .OnComplete(() => Debug.Log("CancelSwap: swap back complete."));
     }
-    private void FallDownTiles() // all tiles including extra tiles and obstacles fall down to fill empty spaces
+    private void FallDownTiles()
     {
         int rows = currentLevel.rowCount + extraRows;
         int cols = currentLevel.columnCount;
@@ -380,57 +380,51 @@ public class LevelManager : MonoBehaviour
 
                         if (obj is Tile tile)
                         {
-                            var t = tile.Move(r, c);
-                            if (t != null) moveTweens.Add(t);
+                            moveTweens.Add(tile.Move(r, c));
                             anyMoved = true;
                         }
                         else if (obj is Obstacle obstacle)
                         {
-                            var t = obstacle.Move(r, c);
-                            if (t != null) moveTweens.Add(t);
+                            moveTweens.Add(obstacle.Move(r, c));
                             anyMoved = true;
                         }
-                        break; // stop scanning upward in this column
+
+                        break;
                     }
                     rr--;
                 }
             }
         }
-        float postFallDelay = 2f;
+
         if (anyMoved && moveTweens.Count > 0)
         {
-            // Join all actual move tweens and call MakeMatch when they finish.
             var seq = DOTween.Sequence();
             foreach (var tw in moveTweens)
             {
                 seq.Join(tw);
             }
 
-            // After all moves complete, create new tiles in the extra rows then wait then check for matches.
             seq.AppendCallback(() =>
             {
-                FillExtraRowsWithNewTiles();
+                Debug.Log("FallDownTiles: Cascading complete, filling gaps dynamically.");
+                FillExtraRowsWithNewTiles(); // Fill top rows after cascading
             });
 
-            // Append an explicit interval to the same sequence so the delay is guaranteed
-            // to happen after all move tweens, then call MakeMatch.
-            seq.AppendInterval(postFallDelay)
-               .OnComplete(() =>
-               {
-                   Debug.Log("FallDownTiles: moves complete + post delay, checking for matches after fall.");
-                   MakeMatch(awardScore: true);
-               });
+            seq.OnComplete(() =>
+            {
+                Debug.Log("FallDownTiles: moves complete, checking for matches after fall.");
+                CheckAndRepeatFallDown(); // Check if further cascading is needed
+            });
         }
         else if (anyMoved)
         {
-            // fallback — no tweens returned; use a coroutine-based delay (unaffected by DOTween settings)
-            StartCoroutine(WaitThenMatchRealtime(postFallDelay));
+            StartCoroutine(WaitThenMatchRealtime(0f)); // No delay for falling
         }
         else
         {
             Debug.Log("FallDownTiles: no tiles moved.");
-            // No movement — continue matching (safe to call synchronously)
-            MakeMatch(awardScore: true);
+            FillExtraRowsWithNewTiles(); // Ensure gaps are filled even if no tiles moved
+            CheckAndRepeatFallDown(); // Check if further cascading is needed
         }
     }
 
@@ -471,6 +465,37 @@ public class LevelManager : MonoBehaviour
                     tilesAndObstacles[r, c] = newTileObj.GetComponent<Tile>();
                 }
             }
+        }
+    }
+    private void CheckAndRepeatFallDown()
+    {
+        bool hasEmptySpaces = false;
+        int rows = currentLevel.rowCount + extraRows;
+        int cols = currentLevel.columnCount;
+
+        // Check for empty spaces in the grid
+        for (int r = 0; r < rows; r++)
+        {
+            for (int c = 0; c < cols; c++)
+            {
+                if (tilesAndObstacles[r, c] == null)
+                {
+                    hasEmptySpaces = true;
+                    break;
+                }
+            }
+            if (hasEmptySpaces) break;
+        }
+
+        if (hasEmptySpaces)
+        {
+            Debug.Log("CheckAndRepeatFallDown: Empty spaces detected, repeating fall and fill.");
+            FallDownTiles(); // Repeat the process
+        }
+        else
+        {
+            Debug.Log("CheckAndRepeatFallDown: No empty spaces, proceeding to match.");
+            MakeMatch(awardScore: true); // Proceed to match detection
         }
     }
 }
