@@ -48,6 +48,8 @@ public class HierarchyCopier : OdinEditorWindow
 	{
 		string indentStr = new string(' ', indent * 2);
 		sb.AppendLine($"{indentStr}GameObject: {go.name}");
+		sb.AppendLine($"{indentStr}  activeSelf: {go.activeSelf}");
+		sb.AppendLine($"{indentStr}  activeInHierarchy: {go.activeInHierarchy}");
 		foreach (var comp in go.GetComponents<Component>())
 		{
 			if (comp == null) continue;
@@ -59,7 +61,7 @@ public class HierarchyCopier : OdinEditorWindow
 			SerializeGameObjectRecursive(child.gameObject, sb, indent + 1);
 		}
 	}
-
+	
 	private void SerializeComponentFields(Component comp, StringBuilder sb, int indent)
 	{
 		string indentStr = new string(' ', indent * 2);
@@ -87,14 +89,22 @@ public class HierarchyCopier : OdinEditorWindow
 			return;
 		}
 		
-		var fields = comp.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-		foreach (var field in fields)
+		// If the component exposes a public bool "enabled" property (Behaviour, Renderer, etc.), include it.
+		var enabledProp = comp.GetType().GetProperty("enabled", BindingFlags.Public | BindingFlags.Instance);
+		if (enabledProp != null && enabledProp.PropertyType == typeof(bool))
 		{
-			// Only show serializable fields
-			if (!field.IsPublic && field.GetCustomAttribute<SerializeField>() == null) continue;
-			object value = field.GetValue(comp);
-			string valueStr = value == null ? "null" : value.ToString();
-			sb.AppendLine($"{indentStr}{field.Name}: {valueStr}");
+			var enabledVal = enabledProp.GetValue(comp);
+			sb.AppendLine($"{indentStr}enabled: {enabledVal}");
 		}
-	}
+        
+        var fields = comp.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (var field in fields)
+        {
+            // Only show serializable fields
+            if (!field.IsPublic && field.GetCustomAttribute<SerializeField>() == null) continue;
+            object value = field.GetValue(comp);
+            string valueStr = value == null ? "null" : value.ToString();
+            sb.AppendLine($"{indentStr}{field.Name}: {valueStr}");
+        }
+    }
 }

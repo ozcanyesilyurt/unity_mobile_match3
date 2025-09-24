@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour
         // Repeat until no new matches are produced by fills (handles cascades)
         while (true)
         {
-            FindMatches(true);
+            FindMatches(!awardScore); // during level creation (awardScore == false) include extra rows
 
             if (_matchedTiles.Count == 0)
                 break;
@@ -69,6 +69,13 @@ public class LevelManager : MonoBehaviour
             if (awardScore)
             {
                 float stepScore = ScoreTiles();
+                foreach (var tile in _matchedTiles)// debug log each matched tile
+                {
+                    if (tile != null)
+                    {
+                        Debug.Log($"Matched Tile at ({tile.row},{tile.column}) Type={tile.type} ScoreValue={tile.scoreValue}");
+                    }
+                }
                 Debug.Log($"MakeMatch: matched {_matchedTiles.Count} tiles, score +{stepScore}");
                 // fire events here if desired (only when awardScore == true)
             }
@@ -85,7 +92,17 @@ public class LevelManager : MonoBehaviour
             }
 
             RemoveMatchedTiles();
-            FillEmptyTiles(matchedInfos);
+            // During level creation (awardScore == false) keep using FillEmptyTiles
+            // During gameplay cascades (awardScore == true) use gravity-based FallDownTiles
+            if (awardScore == false)
+            {
+                FillEmptyTiles(matchedInfos);
+            }
+            else
+            {
+                FallDownTiles();
+                return;
+            }
         }
 
         Debug.Log("MakeMatch: no more cascades.");
@@ -268,136 +285,192 @@ public class LevelManager : MonoBehaviour
 
         return new Vector3(x, y, 0f);
     }
-    public void TrySwap(Tile a, Tile b)    {
-    if (a == null || b == null) return;
 
-    // adjacency
-    int dr = Mathf.Abs(a.row - b.row);
-    int dc = Mathf.Abs(a.column - b.column);
-    if (!((dr == 1 && dc == 0) || (dr == 0 && dc == 1))) return;
-
-    // store originals
-    int aRowOrig = a.row, aColOrig = a.column;
-    int bRowOrig = b.row, bColOrig = b.column;
-
-    // DEBUG: dump the pair + surrounding row/col so you can see what's actually on the board
-    Debug.Log($"TrySwap: swapping A({aRowOrig},{aColOrig}) type={a.type}  <->  B({bRowOrig},{bColOrig}) type={b.type}");
-    if (tilesAndObstacles != null)
-    {
-        Tile tAonBoard = tilesAndObstacles[aRowOrig, aColOrig] as Tile;
-        Tile tBonBoard = tilesAndObstacles[bRowOrig, bColOrig] as Tile;
-        Debug.Log($"Board before swap: at A => { (tAonBoard!=null ? tAonBoard.type.ToString() : "null") }, at B => { (tBonBoard!=null ? tBonBoard.type.ToString() : "null") }");
-    }
-
-    // swap in the board array
-    tilesAndObstacles[aRowOrig, aColOrig] = b;
-    tilesAndObstacles[bRowOrig, bColOrig] = a;
-
-    // update logical coords (so FindMatches reads the swapped state after animation)
-    a.NewCoordinates(bRowOrig, bColOrig);
-    b.NewCoordinates(aRowOrig, aColOrig);
-
-    // DEBUG: verify board after swap
-    if (tilesAndObstacles != null)
-    {
-        Tile tAonBoard = tilesAndObstacles[bRowOrig, bColOrig] as Tile; // should be 'a' now
-        Tile tBonBoard = tilesAndObstacles[aRowOrig, aColOrig] as Tile; // should be 'b' now
-        Debug.Log($"Board after swap: at new Apos({bRowOrig},{bColOrig}) => { (tAonBoard!=null ? tAonBoard.type.ToString() : "null") }, at new Bpos({aRowOrig},{aColOrig}) => { (tBonBoard!=null ? tBonBoard.type.ToString() : "null") }");
-    }
-
-    Tween ta = a.Move(bRowOrig, bColOrig);
-    Tween tb = b.Move(aRowOrig, aColOrig);
-
-    Sequence seq = DOTween.Sequence();
-    seq.Join(ta);
-    seq.Join(tb);
-    seq.OnComplete(() =>
-    {
-        // DEBUG: right before TryMatch, dump the two tiles
-        Debug.Log($"TrySwap.OnComplete: A now at ({a.row},{a.column}) type={a.type}  B now at ({b.row},{b.column}) type={b.type}");
-        TryMatch(a, b, aRowOrig, aColOrig, bRowOrig, bColOrig);
-    });
-}
 
 
     // TryMatch called after swap animation; this overload receives originals so it can CancelSwap
-    private void TryMatch(Tile a, Tile b, int aRowOrig, int aColOrig, int bRowOrig, int bColOrig)
-    {
-        // detect matches on the current board (swapped state)
-        FindMatches(includeExtraRows: false);
 
-        if (_matchedTiles.Count > 0)
-        {
-            // we have matches: resolve them (award score + cascades)
-            MakeMatch(awardScore: true);
-            // optionally notify listeners:
-            Match3Events.OnSwapSuccess?.Invoke();
-        }
-        else
-        {
-            // no match: revert the swap visually and in board data
-            CancelSwap(a, b, aRowOrig, aColOrig, bRowOrig, bColOrig);
-            Match3Events.OnSwapCancel?.Invoke();
-        }
-    }
 
-    // keep original signature as a convenience (calls overload)
-    public void TryMatch(Tile a, Tile b)
-    {
-        // fallback: call FindMatches and resolve — no revert possible here
-        FindMatches(includeExtraRows: false);
-        if (_matchedTiles.Count > 0) MakeMatch(awardScore: true);
-    }
 
     // swap did not produce a match, swap back (overload with original coords)
-    public void CancelSwap(Tile a, Tile b, int aRowOrig, int aColOrig, int bRowOrig, int bColOrig)
-    {
-        if (a == null || b == null) return;
 
-        // Place objects back in the board array at their original positions
-        tilesAndObstacles[aRowOrig, aColOrig] = a;
-        tilesAndObstacles[bRowOrig, bColOrig] = b;
-
-        // animate tiles back to their original positions and update their logical coords
-        a.NewCoordinates(aRowOrig, aColOrig);
-        b.NewCoordinates(bRowOrig, bColOrig);
-
-        Tween ta = a.Move(aRowOrig, aColOrig);
-        Tween tb = b.Move(bRowOrig, bColOrig);
-
-        Sequence seq = DOTween.Sequence();
-        seq.Join(ta);
-        seq.Join(tb);
-        // optional: on complete, you can allow player input again or fire an event
-    }
-
-    // keep original CancelSwap signature (no-op wrapper)
-    public void CancelSwap(Tile a, Tile b)
-    {
-        // no original positions known — just log
-        Debug.LogWarning("CancelSwap called without original positions. No action taken.");
-    }
 
     public void RequestSwap(Tile fromTile, Vector2Int dir)
     {
         Debug.Log($"RequestSwap from ({fromTile.row},{fromTile.column}) dir={dir}");
-        if (fromTile == null) return;
-
-        // NOTE: screen-space Y and board-row Y have opposite sign.
-        // Screen: up = +Y, down = -Y. Board rows increase downward.
-        // So convert by subtracting dir.y when computing the neighbor row.
-        int neighborRow = fromTile.row - dir.y;
-        int neighborCol = fromTile.column + dir.x;
-
-        Tile neighbor = GetTileAt(neighborRow, neighborCol);
-        if (neighbor == null)
+        Tile toTile = GetTileAt(fromTile.row + dir.y, fromTile.column + dir.x);
+        if (toTile == null)
         {
-            Debug.Log("RequestSwap: neighbor not valid (out of bounds or not a tile).");
+            Debug.Log("RequestSwap: target tile is null or out of bounds.");
             return;
         }
+        TrySwap(fromTile, toTile);
 
-        // forward to TrySwap -> animation -> TryMatch/CancelSwap flow
-        TrySwap(fromTile, neighbor);
-        Match3Events.OnTrySwap?.Invoke();
+    }
+    public void TrySwap(Tile a, Tile b)
+    {
+        tilesAndObstacles[a.row, a.column] = b;
+        tilesAndObstacles[b.row, b.column] = a;
+
+        // Store original coords in case we need to swap back
+        int aRow = a.row, aCol = a.column;
+        int bRow = b.row, bCol = b.column;
+
+        // Swap visually (start both tweens and join them)
+        var tweenA = a.Move(bRow, bCol);
+        var tweenB = b.Move(aRow, aCol);
+        DOTween.Sequence()
+            .Join(tweenA)
+            .Join(tweenB)
+            .OnComplete(() => TryMatch(a, b, aRow, aCol, bRow, bCol));
+    }
+    private void TryMatch(Tile a, Tile b, int aRow, int aCol, int bRow, int bCol)
+    {
+        FindMatches();
+        if (_matchedTiles.Count == 0)
+        {
+            Debug.Log("TryMatch: no match, cancelling swap.");
+            CancelSwap(a, b, aRow, aCol, bRow, bCol);
+        }
+        else
+        {
+            Debug.Log($"TryMatch: match found with {_matchedTiles.Count} tiles, resolving.");
+            MakeMatch(awardScore: true);
+        }
+    }
+    public void CancelSwap(Tile a, Tile b, int aRow, int aCol, int bRow, int bCol)
+    {
+        // Restore logical positions
+        tilesAndObstacles[aRow, aCol] = a;
+        tilesAndObstacles[bRow, bCol] = b;
+
+        // Swap visually back (start both tweens and join them)
+        var tweenA = a.Move(aRow, aCol);
+        var tweenB = b.Move(bRow, bCol);
+        DOTween.Sequence()
+            .Join(tweenA)
+            .Join(tweenB)
+            .OnComplete(() => Debug.Log("CancelSwap: swap back complete."));
+    }
+    private void FallDownTiles() // all tiles including extra tiles and obstacles fall down to fill empty spaces
+    {
+        int rows = currentLevel.rowCount + extraRows;
+        int cols = currentLevel.columnCount;
+        var moveTweens = new List<Tween>();
+        bool anyMoved = false;
+
+        // Process each column independently
+        for (int c = 0; c < cols; c++)
+        {
+            // Scan from bottom to top, looking for empty cells
+            for (int r = rows - 1; r >= 0; r--)
+            {
+                if (tilesAndObstacles[r, c] != null) continue; // not empty
+
+                // Found an empty cell at (r,c); look above it for a tile/obstacle to fall down
+                int rr = r - 1;
+                while (rr >= 0)
+                {
+                    if (tilesAndObstacles[rr, c] != null)
+                    {
+                        // Found a tile/obstacle at (rr,c) to fall down into (r,c)
+                        var obj = tilesAndObstacles[rr, c];
+                        tilesAndObstacles[r, c] = obj;
+                        tilesAndObstacles[rr, c] = null;
+
+                        if (obj is Tile tile)
+                        {
+                            var t = tile.Move(r, c);
+                            if (t != null) moveTweens.Add(t);
+                            anyMoved = true;
+                        }
+                        else if (obj is Obstacle obstacle)
+                        {
+                            var t = obstacle.Move(r, c);
+                            if (t != null) moveTweens.Add(t);
+                            anyMoved = true;
+                        }
+                        break; // stop scanning upward in this column
+                    }
+                    rr--;
+                }
+            }
+        }
+        float postFallDelay = 2f;
+        if (anyMoved && moveTweens.Count > 0)
+        {
+            // Join all actual move tweens and call MakeMatch when they finish.
+            var seq = DOTween.Sequence();
+            foreach (var tw in moveTweens)
+            {
+                seq.Join(tw);
+            }
+
+            // After all moves complete, create new tiles in the extra rows then wait then check for matches.
+            seq.AppendCallback(() =>
+            {
+                FillExtraRowsWithNewTiles();
+            });
+
+            // Append an explicit interval to the same sequence so the delay is guaranteed
+            // to happen after all move tweens, then call MakeMatch.
+            seq.AppendInterval(postFallDelay)
+               .OnComplete(() =>
+               {
+                   Debug.Log("FallDownTiles: moves complete + post delay, checking for matches after fall.");
+                   MakeMatch(awardScore: true);
+               });
+        }
+        else if (anyMoved)
+        {
+            // fallback — no tweens returned; use a coroutine-based delay (unaffected by DOTween settings)
+            StartCoroutine(WaitThenMatchRealtime(postFallDelay));
+        }
+        else
+        {
+            Debug.Log("FallDownTiles: no tiles moved.");
+            // No movement — continue matching (safe to call synchronously)
+            MakeMatch(awardScore: true);
+        }
+    }
+
+    // add helper coroutine near class bottom
+    private System.Collections.IEnumerator WaitThenMatchRealtime(float seconds)
+    {
+        yield return new WaitForSecondsRealtime(seconds);
+        Debug.Log("FallDownTiles: fallback realtime delay complete, checking for matches.");
+        MakeMatch(awardScore: true);
+    }
+
+    private void FillExtraRowsWithNewTiles()
+    {
+        if (currentLevel == null || levelFactory == null || tilesAndObstacles == null) return;
+        int cols = currentLevel.columnCount;
+        for (int r = 0; r < extraRows; r++)
+        {
+            for (int c = 0; c < cols; c++)
+            {
+                if (tilesAndObstacles[r, c] == null)
+                {
+                    // Build allowed types and pick a random one
+                    var allowedTypes = new List<TileType>(currentLevel.tileTypesAllowed);
+                    TileType chosenType;
+                    if (allowedTypes.Count == 0)
+                    {
+                        var fallback = currentLevel.tileTypesAllowed;
+                        chosenType = fallback[Random.Range(0, fallback.Length)];
+                    }
+                    else
+                    {
+                        chosenType = allowedTypes[Random.Range(0, allowedTypes.Count)];
+                    }
+
+                    Debug.Log($"FillExtraRowsWithNewTiles: Creating tile at ({r},{c}) of type {chosenType}");
+                    GameObject newTileObj = levelFactory.CreateTile(r, c, chosenType);
+                    levelFactory.PlaceIPoolableInLevel(newTileObj.GetComponent<IPoolable>());
+                    tilesAndObstacles[r, c] = newTileObj.GetComponent<Tile>();
+                }
+            }
+        }
     }
 }

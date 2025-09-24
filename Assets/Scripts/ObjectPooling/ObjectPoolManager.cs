@@ -121,8 +121,6 @@ public class ObjectPoolManager : MonoBehaviour
         return spawnableObj;
     }
 
-
-
     public static void ReturnObjectToPool(GameObject obj)
     {
         string gameObjectName = obj.name.Replace("(Clone)", "").Trim();
