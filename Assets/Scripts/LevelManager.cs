@@ -352,80 +352,98 @@ public class LevelManager : MonoBehaviour
             .Join(tweenB)
             .OnComplete(() => Debug.Log("CancelSwap: swap back complete."));
     }
-    private void FallDownTiles()
+    private void FallDownTiles(bool delayBeforeMatch = true)
     {
         int rows = currentLevel.rowCount + extraRows;
         int cols = currentLevel.columnCount;
         var moveTweens = new List<Tween>();
         bool anyMoved = false;
 
-        // Process each column independently
+        // pack / pull-down pass (your existing logic)
         for (int c = 0; c < cols; c++)
         {
-            // Scan from bottom to top, looking for empty cells
             for (int r = rows - 1; r >= 0; r--)
             {
-                if (tilesAndObstacles[r, c] != null) continue; // not empty
+                if (tilesAndObstacles[r, c] != null) continue;
 
-                // Found an empty cell at (r,c); look above it for a tile/obstacle to fall down
-                int rr = r - 1;
-                while (rr >= 0)
+                for (int rr = r - 1; rr >= 0; rr--)
                 {
-                    if (tilesAndObstacles[rr, c] != null)
+                    var obj = tilesAndObstacles[rr, c];
+                    if (obj == null) continue;
+
+                    tilesAndObstacles[r, c] = obj;
+                    tilesAndObstacles[rr, c] = null;
+
+                    if (obj is Tile t)
                     {
-                        // Found a tile/obstacle at (rr,c) to fall down into (r,c)
-                        var obj = tilesAndObstacles[rr, c];
-                        tilesAndObstacles[r, c] = obj;
-                        tilesAndObstacles[rr, c] = null;
-
-                        if (obj is Tile tile)
-                        {
-                            moveTweens.Add(tile.Move(r, c));
-                            anyMoved = true;
-                        }
-                        else if (obj is Obstacle obstacle)
-                        {
-                            moveTweens.Add(obstacle.Move(r, c));
-                            anyMoved = true;
-                        }
-
-                        break;
+                        var tw = t.Move(r, c);
+                        if (tw != null) moveTweens.Add(tw);
                     }
-                    rr--;
+                    else if (obj is Obstacle o)
+                    {
+                        var tw = o.Move(r, c);
+                        if (tw != null) moveTweens.Add(tw);
+                    }
+                    anyMoved = true;
+                    break;
                 }
+            }
+        }
+
+        float postFallDelay = 0.5f; // only used at the very end
+
+        void FinishOrRepeat()
+        {
+            // fill only the top buffer
+            FillExtraRowsWithNewTiles();
+
+            // if ANY null remains anywhere (or just in visible rows if you prefer), repeat immediately
+            if (HasEmptyCells())
+            {
+                // keep repeating WITHOUT adding delay each time
+                FallDownTiles(delayBeforeMatch);
+                return;
+            }
+
+            // settled -> now (and only now) add the nice pause before scoring/cascading
+            if (delayBeforeMatch)
+            {
+                DOTween.Sequence()
+                       .AppendInterval(postFallDelay)
+                       .OnComplete(() => MakeMatch(awardScore: true));
+            }
+            else
+            {
+                MakeMatch(awardScore: true);
             }
         }
 
         if (anyMoved && moveTweens.Count > 0)
         {
             var seq = DOTween.Sequence();
-            foreach (var tw in moveTweens)
-            {
-                seq.Join(tw);
-            }
-
-            seq.AppendCallback(() =>
-            {
-                Debug.Log("FallDownTiles: Cascading complete, filling gaps dynamically.");
-                FillExtraRowsWithNewTiles(); // Fill top rows after cascading
-            });
-
-            seq.OnComplete(() =>
-            {
-                Debug.Log("FallDownTiles: moves complete, checking for matches after fall.");
-                CheckAndRepeatFallDown(); // Check if further cascading is needed
-            });
+            foreach (var tw in moveTweens) seq.Join(tw);
+            seq.OnComplete(FinishOrRepeat); // no interval here
         }
         else if (anyMoved)
         {
-            StartCoroutine(WaitThenMatchRealtime(0f)); // No delay for falling
+            // moved but no tweens returned
+            FinishOrRepeat();
         }
         else
         {
-            Debug.Log("FallDownTiles: no tiles moved.");
-            FillExtraRowsWithNewTiles(); // Ensure gaps are filled even if no tiles moved
-            CheckAndRepeatFallDown(); // Check if further cascading is needed
+            // nothing moved, still try to top-fill and loop
+            FinishOrRepeat();
         }
+    }
+
+    private bool HasEmptyCells()
+    {
+        int rows = currentLevel.rowCount + extraRows;
+        int cols = currentLevel.columnCount;
+        for (int r = 0; r < rows; r++)
+            for (int c = 0; c < cols; c++)
+                if (tilesAndObstacles[r, c] == null) return true;
+        return false;
     }
 
     // add helper coroutine near class bottom
