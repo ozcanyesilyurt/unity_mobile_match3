@@ -23,6 +23,8 @@ public class LevelManager : MonoBehaviour
     private IPoolable[,] tilesAndObstacles;// holds all tiles and obstacles in the level
     private readonly HashSet<Tile> _matchedTiles = new HashSet<Tile>();
     public IReadOnlyCollection<Tile> MatchedTiles => _matchedTiles;
+    private int _lockCount = 0;
+    public bool IsLocked => _lockCount > 0;
     public static LevelManager Instance;
     private void Awake()
     {
@@ -106,6 +108,11 @@ public class LevelManager : MonoBehaviour
         }
 
         Debug.Log("MakeMatch: no more cascades.");
+        if (awardScore)
+        {
+            UnlockInteraction();
+        }
+
     }
 
     public void FindMatches(bool includeExtraRows = false)
@@ -297,6 +304,9 @@ public class LevelManager : MonoBehaviour
 
     public void RequestSwap(Tile fromTile, Vector2Int dir)
     {
+        if (IsLocked) return;
+        LockInteraction();
+
         Debug.Log($"RequestSwap from ({fromTile.row},{fromTile.column}) dir={dir}");
         Tile toTile = GetTileAt(fromTile.row + dir.y, fromTile.column + dir.x);
         if (toTile == null)
@@ -350,7 +360,12 @@ public class LevelManager : MonoBehaviour
         DOTween.Sequence()
             .Join(tweenA)
             .Join(tweenB)
-            .OnComplete(() => Debug.Log("CancelSwap: swap back complete."));
+            .OnComplete(() =>
+            {
+                Debug.Log("CancelSwap: swap back complete.");
+                Debug.Log("CancelSwap: swap back complete.");
+                UnlockInteraction();
+            });
     }
     private void FallDownTiles(bool delayBeforeMatch = true)
     {
@@ -485,35 +500,22 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
-    private void CheckAndRepeatFallDown()
+    public void LockInteraction()
     {
-        bool hasEmptySpaces = false;
-        int rows = currentLevel.rowCount + extraRows;
-        int cols = currentLevel.columnCount;
-
-        // Check for empty spaces in the grid
-        for (int r = 0; r < rows; r++)
-        {
-            for (int c = 0; c < cols; c++)
-            {
-                if (tilesAndObstacles[r, c] == null)
-                {
-                    hasEmptySpaces = true;
-                    break;
-                }
-            }
-            if (hasEmptySpaces) break;
-        }
-
-        if (hasEmptySpaces)
-        {
-            Debug.Log("CheckAndRepeatFallDown: Empty spaces detected, repeating fall and fill.");
-            FallDownTiles(); // Repeat the process
-        }
-        else
-        {
-            Debug.Log("CheckAndRepeatFallDown: No empty spaces, proceeding to match.");
-            MakeMatch(awardScore: true); // Proceed to match detection
-        }
+        _lockCount++;
+        SetRaycastsEnabled(false);
+    }
+    public void UnlockInteraction()
+    {
+        _lockCount = Mathf.Max(0, _lockCount - 1);
+        if (_lockCount == 0) SetRaycastsEnabled(true);
+    }
+    private void SetRaycastsEnabled(bool enabled)
+    {
+        if (tilesContainer == null) return;
+        var cg = tilesContainer.GetComponent<CanvasGroup>();
+        if (!cg) cg = tilesContainer.gameObject.AddComponent<CanvasGroup>();
+        cg.blocksRaycasts = enabled;
+        cg.interactable = enabled; // optional, if you use Selectables
     }
 }

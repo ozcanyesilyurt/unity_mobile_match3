@@ -27,6 +27,8 @@ public class TileInputHandler : MonoBehaviour, IPointerDownHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (LevelManager.Instance != null && LevelManager.Instance.IsLocked) return;
+        
         if (oneSwapPerDrag && _swapRequested) return;
 
         Vector2 delta = (Vector2)eventData.position - _pressScreenPos;
