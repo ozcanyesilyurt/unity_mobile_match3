@@ -12,6 +12,17 @@ public class LevelManager : MonoBehaviour
     public RectTransform tilesCanvas;           // tilesContainer and playArea are on this canvas
     public RectTransform tilesContainer;        // match3 tiles and obstacles are children of this container
     public RectTransform playArea;              // area where tiles are visible and interactable
+                                                // --- NEW: hook into the other canvas' top bars and our own rects ---
+    [SerializeField] private RectTransform topSection;     // from Main_Canvas_Static
+    [SerializeField] private RectTransform middleSection;  // the blue strip
+    [SerializeField] private RectTransform match3Root;     // full-screen child under Match3_Canvas
+    [SerializeField] private RectTransform maxPlayArea;    // Match3_Max_Play_Area (parent of playArea)
+    [Header("Board scaling caps (pixels in Match3 canvas)")]
+    public float minCellSizePx = 72f;   // don't let cells get smaller than this on tiny phones
+    public float maxCellSizePx = 120f;  // don't let cells get bigger than this on tablets
+    public float boardMarginPx = 0f;    // optional padding inside Max_Play_Area
+    [Range(0.5f, 1.0f)] public float backgroundFill = 0.85f;  // white rounded square
+    [Range(0.5f, 1.1f)] public float iconFill = 0.98f;  // tile/obstacle icon
 
     public int extraRows = 2;
 
@@ -41,8 +52,72 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(BootSequence());
+    }
+    private System.Collections.IEnumerator BootSequence()
+    {
+        // Let both canvases finish their first layout pass
+        yield return null;
+
+        // Ensure our stretch containers are correct (anchors 0..1 = full screen)
+        if (match3Root)
+        {
+            match3Root.anchorMin = Vector2.zero;
+            match3Root.anchorMax = Vector2.one;
+            match3Root.pivot = new Vector2(0.5f, 0.5f);
+            match3Root.offsetMin = Vector2.zero;
+            match3Root.offsetMax = Vector2.zero;
+        }
+
+        if (maxPlayArea)
+        {
+            maxPlayArea.anchorMin = Vector2.zero;
+            maxPlayArea.anchorMax = Vector2.one;
+            maxPlayArea.pivot = new Vector2(0.5f, 0.5f);
+        }
+
+        ApplyTopInset();         // carve out Top + Middle from Match3 area
+
         CreateLevel(currentLevelData);
         LevelStart();
+    }
+    // ---- Convert a rect’s height to Match3 space (so offsets are correct) ----
+    private float HeightInMatch3Canvas(RectTransform src)
+    {
+        if (!src || !match3Root) return 0f;
+
+        var corners = new Vector3[4];
+        src.GetWorldCorners(corners);
+        for (int i = 0; i < 4; i++)
+            corners[i] = match3Root.InverseTransformPoint(corners[i]);
+
+        return Mathf.Abs(corners[1].y - corners[0].y);
+    }
+    private void ApplyTopInset()
+    {
+        if (!maxPlayArea) return;
+
+        // If Top/Middle are on another canvas, convert their heights to Match3 space.
+        float topH = 0f;
+        if (topSection) topH += HeightInMatch3Canvas(topSection);
+        if (middleSection) topH += HeightInMatch3Canvas(middleSection);
+
+        maxPlayArea.anchorMin = new Vector2(0f, 0f);
+        maxPlayArea.anchorMax = new Vector2(1f, 1f);
+        maxPlayArea.pivot = new Vector2(0.5f, 0.5f);
+
+        // Stretch with a top inset: Left/Bottom=0, Right=0, Top=-topH
+        maxPlayArea.offsetMin = new Vector2(0f, 0f);
+        maxPlayArea.offsetMax = new Vector2(0f, -topH);
+    }
+    private void OnRectTransformDimensionsChange()
+    {
+        if (!isActiveAndEnabled) return;
+        ApplyTopInset();
+
+        // When size changes, ask the factory to recompute from base metrics (next section)
+        if (levelFactory != null)
+            levelFactory.ConfigureLayoutContainers();
     }
     public void LevelStart()
     {

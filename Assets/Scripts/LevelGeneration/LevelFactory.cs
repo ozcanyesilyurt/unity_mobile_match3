@@ -10,6 +10,7 @@ public class LevelFactory
     private SpriteManager spriteManager;
     RectTransform tilesContainer;
     RectTransform playArea;
+    private float baseCellSizeX, baseCellSizeY, baseSpacingX, baseSpacingY;
 
     private Level level;
     public IPoolable[,] tilesAndObstacles; // for match3 tiles and obstacles inside level
@@ -30,6 +31,10 @@ public class LevelFactory
     {
         tilesAndObstacles = new IPoolable[levelData.rowCount + extraRows, levelData.columnCount];
         this.level = new Level(levelData);
+        baseCellSizeX = level.cellSizeX;
+        baseCellSizeY = level.cellSizeY;
+        baseSpacingX = level.spacingX;
+        baseSpacingY = level.spacingY;
         ConfigureLayoutContainers();
         CreateLevelBackgrounds();
         CreateLevelObstacles();
@@ -168,6 +173,25 @@ public class LevelFactory
         rt.localScale = Vector3.one;
         rt.sizeDelta = new Vector2(level.cellSizeX, level.cellSizeY);
 
+        float cw = level.cellSizeX;
+        float ch = level.cellSizeY;
+
+        // Make the white background smaller than the cell,
+        // and the icon slightly larger (or equal) than the background.
+        if (comp.TryGetComponent<Background>(out _))
+        {
+            rt.sizeDelta = new Vector2(cw * levelManager.backgroundFill,
+                                       ch * levelManager.backgroundFill);
+        }
+        else if (comp.TryGetComponent<Tile>(out _)
+              || comp.TryGetComponent<Obstacle>(out _))
+        {
+            rt.sizeDelta = new Vector2(cw * levelManager.iconFill,
+                                       ch * levelManager.iconFill);
+        }
+
+        // (anchors/pivot/top-origin position stay the same as you already set)
+
         // Grid step sizes
         float stepX = level.cellSizeX + level.spacingX;
         float stepY = level.cellSizeY + level.spacingY;
@@ -196,35 +220,46 @@ public class LevelFactory
 
         RectTransform maxPlayArea = playArea.parent as RectTransform; // Match3_Max_Play_Area
 
-        // 1) Natural board size from rows/cols (unscaled)
-        float boardWidth = level.columnCount * level.cellSizeX + Mathf.Max(0, level.columnCount - 1) * level.spacingX;
-        float boardHeight = level.rowCount * level.cellSizeY + Mathf.Max(0, level.rowCount - 1) * level.spacingY;
+        // ----- base (unscaled) board geometry -----
+        float boardWidth = level.columnCount * baseCellSizeX + Mathf.Max(0, level.columnCount - 1) * baseSpacingX;
+        float boardHeight = level.rowCount * baseCellSizeY + Mathf.Max(0, level.rowCount - 1) * baseSpacingY;
 
-        // 2) Constrain Play_Area to Max_Play_Area
-        float maxW = maxPlayArea.rect.width;
-        float maxH = maxPlayArea.rect.height;
-        float scale = Mathf.Min(maxW / boardWidth, maxH / boardHeight, 1f);
+        // ----- available area (optionally shrink by margin) -----
+        float areaW = Mathf.Max(0, maxPlayArea.rect.width - 2f * levelManager.boardMarginPx);
+        float areaH = Mathf.Max(0, maxPlayArea.rect.height - 2f * levelManager.boardMarginPx);
+
+        // Scale that would fill the area
+        float fillScale = Mathf.Min(areaW / boardWidth, areaH / boardHeight);
+
+        // What cell size would that produce?
+        float cellSizeIfFilled = baseCellSizeX * fillScale; // assume square cells
+
+        // Clamp cell size so boards with fewer rows/cols don't become enormous
+        float clampedCellSize = Mathf.Clamp(cellSizeIfFilled,
+                                            levelManager.minCellSizePx,
+                                            levelManager.maxCellSizePx);
+
+        // Final scale derived from the clamped cell size
+        float scale = clampedCellSize / baseCellSizeX;
+
+        // ----- apply scaled metrics (idempotent from base) -----
+        level.cellSizeX = baseCellSizeX * scale;
+        level.cellSizeY = baseCellSizeY * scale;
+        level.spacingX = baseSpacingX * scale;
+        level.spacingY = baseSpacingY * scale;
 
         float playW = boardWidth * scale;
         float playH = boardHeight * scale;
 
-        // IMPORTANT: scale the metrics used by placement/rendering
-        if (Mathf.Abs(scale - 1f) > 0.0001f)
-        {
-            level.cellSizeX *= scale;
-            level.cellSizeY *= scale;
-            level.spacingX *= scale;
-            level.spacingY *= scale;
-        }
-
-        // Center Play_Area in Max_Play_Area (center anchors/pivot)
+        // center the play area inside Max_Play_Area
         playArea.anchorMin = playArea.anchorMax = new Vector2(0.5f, 0.5f);
         playArea.pivot = new Vector2(0.5f, 0.5f);
         playArea.sizeDelta = new Vector2(playW, playH);
         playArea.anchoredPosition = Vector2.zero;
 
-        // 3) Board_Tiles taller only on TOP by extraRows. Use scaled metrics now.
-        float extraH = extraRows * level.cellSizeY + (extraRows > 0 ? extraRows * level.spacingY : 0f);
+        // extend the tiles container upward by extra rows (using scaled metrics)
+        float extraH = levelManager.extraRows * level.cellSizeY
+                     + (levelManager.extraRows > 0 ? levelManager.extraRows * level.spacingY : 0f);
 
         float boardTilesW = playW;
         float boardTilesH = playH + extraH;
@@ -232,10 +267,9 @@ public class LevelFactory
         tilesContainer.anchorMin = tilesContainer.anchorMax = new Vector2(0.5f, 0.5f);
         tilesContainer.pivot = new Vector2(0.5f, 0.5f);
         tilesContainer.sizeDelta = new Vector2(boardTilesW, boardTilesH);
-
-        // Align bottoms; extend upward by extraRows
         tilesContainer.anchoredPosition = new Vector2(0f, extraH * 0.5f);
     }
+
 
     #endregion
 
