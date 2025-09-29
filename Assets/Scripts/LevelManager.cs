@@ -219,6 +219,7 @@ public class LevelManager : MonoBehaviour
             {
                 tilesAndObstacles[tile.row, tile.column] = null;
                 ObjectPoolManager.ReturnObjectToPool(tile.gameObject);
+                Match3Events.OnTilesRemoved?.Invoke();
             }
         }
 
@@ -232,6 +233,8 @@ public class LevelManager : MonoBehaviour
             if (tile != null)
             {
                 totalScore += tile.scoreValue;
+                // Fire score changed event here if needed
+                Match3Events.OnScoreChanged?.Invoke();
             }
         }
         return totalScore;
@@ -373,7 +376,7 @@ public class LevelManager : MonoBehaviour
         int cols = currentLevel.columnCount;
         var moveTweens = new List<Tween>();
         bool anyMoved = false;
-
+        var movedTiles = new HashSet<Tile>();
         // pack / pull-down pass (your existing logic)
         for (int c = 0; c < cols; c++)
         {
@@ -393,6 +396,7 @@ public class LevelManager : MonoBehaviour
                     {
                         var tw = t.Move(r, c);
                         if (tw != null) moveTweens.Add(tw);
+                        movedTiles.Add(t);
                     }
                     else if (obj is Obstacle o)
                     {
@@ -406,6 +410,35 @@ public class LevelManager : MonoBehaviour
         }
 
         float postFallDelay = 0.5f; // only used at the very end
+
+        void InvokeTileTouchesBottom()
+        {
+            if (movedTiles.Count == 0) return;
+
+            foreach (var tile in movedTiles)
+            {
+                if (tile == null) continue;
+
+                // ignore tiles that are in the extra rows (top buffer)
+                if (tile.row < extraRows) continue;
+
+                // landed on bottom row
+                if (tile.row == rows - 1)
+                {
+                    Match3Events.OnTileTouchesBottom?.Invoke();
+                    Debug.Log($"Tile at ({tile.row},{tile.column}) touched bottom row.");
+                    continue;
+                }
+
+                // landed on top of another object (cell below is occupied)
+                int belowRow = tile.row + 1;
+                if (belowRow < rows && tilesAndObstacles[belowRow, tile.column] != null)
+                {
+                    Match3Events.OnTileTouchesBottom?.Invoke();
+                    Debug.Log($"Tile at ({tile.row},{tile.column}) touched another object below at ({belowRow},{tile.column}).");
+                }
+            }
+        }
 
         void FinishOrRepeat()
         {
@@ -437,11 +470,16 @@ public class LevelManager : MonoBehaviour
         {
             var seq = DOTween.Sequence();
             foreach (var tw in moveTweens) seq.Join(tw);
-            seq.OnComplete(FinishOrRepeat); // no interval here
+            seq.OnComplete(() =>
+            {
+                InvokeTileTouchesBottom();
+                FinishOrRepeat();
+            });
         }
         else if (anyMoved)
         {
             // moved but no tweens returned
+            InvokeTileTouchesBottom();
             FinishOrRepeat();
         }
         else

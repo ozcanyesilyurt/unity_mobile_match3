@@ -155,7 +155,7 @@ MonoBehaviour:
   tilesCanvas: {fileID: 236154534}
   tilesContainer: {fileID: 906201229}
   playArea: {fileID: 212833688}
-  extraRows: 3
+  extraRows: 1
   currentLevelData: {fileID: 11400000, guid: 38370309c40a5be4b8e46edc9ebffffc, type: 2}
 --- !u!4 &204411354
 Transform:

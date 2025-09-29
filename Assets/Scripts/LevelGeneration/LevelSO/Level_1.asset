@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9856aae283193bc49b2f8b7695d348f9, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
-  rowCount: 6
-  columnCount: 6
+  rowCount: 8
+  columnCount: 8
   obstacleCount: 0
   obstacleCountIsRandom: 0
   obstaclePercent: 0
