@@ -10,6 +10,7 @@ public class Match3Events : MonoBehaviour
     public static Action OnSwapCancel;
     public static Action OnSwapSuccess;
 
-    public static Action OnScoreChanged;
+    public static Action<int> OnScoreAdded;
+    public static Action OnScoreReset;
 
 }

@@ -11,7 +11,7 @@ public class Tile : MonoBehaviour, IPoolable
     [field: SerializeField] public TileType type { get; set; }
     [field: SerializeField] public Sprite sprite { get; set; }
     [field: SerializeField] public float speed { get; set; } = 0.2f; //speed to move tile one row or column
-    [field: SerializeField] public int scoreValue { get; set; } = 1; // base score value for matching this tile
+    [field: SerializeField] public int scoreValue { get; set; } = 10; // base score value for matching this tile
 
     public void ResetForPool()
     {

@@ -95,7 +95,7 @@ MonoBehaviour:
   <type>k__BackingField: 0
   <sprite>k__BackingField: {fileID: 0}
   <speed>k__BackingField: 0.2
-  <scoreValue>k__BackingField: 1
+  <scoreValue>k__BackingField: 10
 --- !u!114 &2598724803807565119
 MonoBehaviour:
   m_ObjectHideFlags: 0

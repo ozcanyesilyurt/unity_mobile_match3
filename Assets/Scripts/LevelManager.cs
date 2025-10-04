@@ -121,6 +121,7 @@ public class LevelManager : MonoBehaviour
     }
     public void LevelStart()
     {
+        Match3Events.OnScoreReset?.Invoke();
         MakeMatch(awardScore: false);
     }
 
@@ -302,17 +303,18 @@ public class LevelManager : MonoBehaviour
 
     public float ScoreTiles()
     {
-        float totalScore = 0;
+        int totalStepScore = 0;
         foreach (var tile in _matchedTiles)
         {
             if (tile != null)
             {
-                totalScore += tile.scoreValue;
-                // Fire score changed event here if needed
-                Match3Events.OnScoreChanged?.Invoke();
+                totalStepScore += tile.scoreValue;
             }
         }
-        return totalScore;
+
+        // notify UI once with this step's delta
+        Match3Events.OnScoreAdded?.Invoke(totalStepScore);
+        return totalStepScore;
     }
 
     public Tile GetTileAt(int row, int col)

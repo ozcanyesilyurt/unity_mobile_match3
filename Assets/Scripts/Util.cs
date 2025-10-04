@@ -16,8 +16,8 @@ using UnityEngine.UI;
     7. Parlama efekti isik candy crush
     8. menu kullanimlarini benzet - royal match
     9. ikonlar 3d - royal match
-    10. tablo boyutu ekran boyutunba gore buyusun.
-    11. arkaplan resmi ekran boyutuna uyumlu olsun
+    ++10. tablo boyutu ekran boyutuna gore buyusun
+    ++11. arkaplan resmi ekran boyutuna uyumlu olsun
     12. Tutorial level 1.
     13. GENEL - Ana menu, oyunu durdurma pause, level baslangic, level sonu efektleri
     14. Ana menu guclendirmeler, giyindirme, puanlari HARCAMA. ANA MENU INTERAKSYON KARAKTER ORTADA NEFES ALIYOR

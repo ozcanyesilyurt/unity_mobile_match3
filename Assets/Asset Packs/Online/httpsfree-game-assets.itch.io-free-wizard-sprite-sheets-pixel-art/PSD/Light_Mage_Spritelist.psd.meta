@@ -1,0 +1,3978 @@
+fileFormatVersion: 2
+guid: a5cdad41ab781b044b0bab06aa53a7be
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9107967215503103392
+    second: Light_Mage_Spritelist_0
+  - first:
+      213: -4567749420016033483
+    second: Light_Mage_Spritelist_1
+  - first:
+      213: -4656309870828715029
+    second: Light_Mage_Spritelist_2
+  - first:
+      213: 4065517286564807975
+    second: Light_Mage_Spritelist_3
+  - first:
+      213: 3087706508594558871
+    second: Light_Mage_Spritelist_4
+  - first:
+      213: -3483152795450767425
+    second: Light_Mage_Spritelist_5
+  - first:
+      213: -3044586107609187555
+    second: Light_Mage_Spritelist_6
+  - first:
+      213: -7773667774343989656
+    second: Light_Mage_Spritelist_7
+  - first:
+      213: 2803231031190883681
+    second: Light_Mage_Spritelist_8
+  - first:
+      213: 4686837617612588795
+    second: Light_Mage_Spritelist_9
+  - first:
+      213: 5822900307774264490
+    second: Light_Mage_Spritelist_10
+  - first:
+      213: -5142068992500605848
+    second: Light_Mage_Spritelist_11
+  - first:
+      213: 5542402671261461472
+    second: Light_Mage_Spritelist_12
+  - first:
+      213: -3666219517258507111
+    second: Light_Mage_Spritelist_13
+  - first:
+      213: -3151194623738351126
+    second: Light_Mage_Spritelist_14
+  - first:
+      213: -2942157350526345345
+    second: Light_Mage_Spritelist_15
+  - first:
+      213: -8990310552619914155
+    second: Light_Mage_Spritelist_16
+  - first:
+      213: 2726890831302985515
+    second: Light_Mage_Spritelist_17
+  - first:
+      213: 6290718995844779994
+    second: Light_Mage_Spritelist_18
+  - first:
+      213: -7567851414465499584
+    second: Light_Mage_Spritelist_19
+  - first:
+      213: 8667434171386445684
+    second: Light_Mage_Spritelist_20
+  - first:
+      213: 5781157486907154973
+    second: Light_Mage_Spritelist_21
+  - first:
+      213: 2798134248890740690
+    second: Light_Mage_Spritelist_22
+  - first:
+      213: -7531118649347181770
+    second: Light_Mage_Spritelist_23
+  - first:
+      213: 8295927358129072241
+    second: Light_Mage_Spritelist_24
+  - first:
+      213: 2035817893344434882
+    second: Light_Mage_Spritelist_25
+  - first:
+      213: 6310050534368191359
+    second: Light_Mage_Spritelist_26
+  - first:
+      213: 7868189373645838770
+    second: Light_Mage_Spritelist_27
+  - first:
+      213: 6784784253781286303
+    second: Light_Mage_Spritelist_28
+  - first:
+      213: -5866981565507367843
+    second: Light_Mage_Spritelist_29
+  - first:
+      213: 5681781257504785621
+    second: Light_Mage_Spritelist_30
+  - first:
+      213: 2321792741876973656
+    second: Light_Mage_Spritelist_31
+  - first:
+      213: 6655742846737250965
+    second: Light_Mage_Spritelist_32
+  - first:
+      213: 1590708376031685147
+    second: Light_Mage_Spritelist_33
+  - first:
+      213: 936255996806564523
+    second: Light_Mage_Spritelist_34
+  - first:
+      213: -1154290639029675087
+    second: Light_Mage_Spritelist_35
+  - first:
+      213: -203209347792364351
+    second: Light_Mage_Spritelist_36
+  - first:
+      213: 2905793335293850382
+    second: Light_Mage_Spritelist_37
+  - first:
+      213: 1118844159610959720
+    second: Light_Mage_Spritelist_38
+  - first:
+      213: -5954309435310811288
+    second: Light_Mage_Spritelist_39
+  - first:
+      213: 337067713674719482
+    second: Light_Mage_Spritelist_40
+  - first:
+      213: 8406683359561320540
+    second: Light_Mage_Spritelist_41
+  - first:
+      213: 7918860781570539613
+    second: Light_Mage_Spritelist_42
+  - first:
+      213: 7495447319569745313
+    second: Light_Mage_Spritelist_43
+  - first:
+      213: 2522959366015552529
+    second: Light_Mage_Spritelist_44
+  - first:
+      213: 2928571512983382299
+    second: Light_Mage_Spritelist_45
+  - first:
+      213: 336450696792255118
+    second: Light_Mage_Spritelist_46
+  - first:
+      213: 5638106409209406334
+    second: Light_Mage_Spritelist_47
+  - first:
+      213: 6223330893670665796
+    second: Light_Mage_Spritelist_48
+  - first:
+      213: -6990774163129797569
+    second: Light_Mage_Spritelist_49
+  - first:
+      213: 8776550198078813564
+    second: Light_Mage_Spritelist_50
+  - first:
+      213: -749673740092228446
+    second: Light_Mage_Spritelist_51
+  - first:
+      213: 3023724193563142682
+    second: Light_Mage_Spritelist_52
+  - first:
+      213: 8955410148711992042
+    second: Light_Mage_Spritelist_53
+  - first:
+      213: -1281383175837437907
+    second: Light_Mage_Spritelist_54
+  - first:
+      213: 955070744892546472
+    second: Light_Mage_Spritelist_55
+  - first:
+      213: 450764169016442612
+    second: Light_Mage_Spritelist_56
+  - first:
+      213: -1713630476474013033
+    second: Light_Mage_Spritelist_57
+  - first:
+      213: 9030204896349102183
+    second: Light_Mage_Spritelist_58
+  - first:
+      213: -2236766960411125941
+    second: Light_Mage_Spritelist_59
+  - first:
+      213: -7457018632776438220
+    second: Light_Mage_Spritelist_60
+  - first:
+      213: 7442479744457025180
+    second: Light_Mage_Spritelist_61
+  - first:
+      213: -8762956819652233674
+    second: Light_Mage_Spritelist_62
+  - first:
+      213: 8663964020217295524
+    second: Light_Mage_Spritelist_63
+  - first:
+      213: 5572442779851982501
+    second: Light_Mage_Spritelist_64
+  - first:
+      213: -8761381998528199115
+    second: Light_Mage_Spritelist_65
+  - first:
+      213: 6625299015145666294
+    second: Light_Mage_Spritelist_66
+  - first:
+      213: -5384152154395703361
+    second: Light_Mage_Spritelist_67
+  - first:
+      213: -944218312767281216
+    second: Light_Mage_Spritelist_68
+  - first:
+      213: -4808613569741516765
+    second: Light_Mage_Spritelist_69
+  - first:
+      213: 8299561803313542941
+    second: Light_Mage_Spritelist_70
+  - first:
+      213: -7250891079584116906
+    second: Light_Mage_Spritelist_71
+  - first:
+      213: -2845918276745295503
+    second: Light_Mage_Spritelist_72
+  - first:
+      213: -8312188444132118892
+    second: Light_Mage_Spritelist_73
+  - first:
+      213: -3009785218185042999
+    second: Light_Mage_Spritelist_74
+  - first:
+      213: 826173264207790470
+    second: Light_Mage_Spritelist_75
+  - first:
+      213: 8944012088523985275
+    second: Light_Mage_Spritelist_76
+  - first:
+      213: -1481511663668428690
+    second: Light_Mage_Spritelist_77
+  - first:
+      213: -7643353070533406586
+    second: Light_Mage_Spritelist_78
+  - first:
+      213: 2618881328270350689
+    second: Light_Mage_Spritelist_79
+  - first:
+      213: 1517885075440999676
+    second: Light_Mage_Spritelist_80
+  - first:
+      213: -5478175422914748636
+    second: Light_Mage_Spritelist_81
+  - first:
+      213: -8212029101392513570
+    second: Light_Mage_Spritelist_82
+  - first:
+      213: 4428277632025123559
+    second: Light_Mage_Spritelist_83
+  - first:
+      213: -4602049999643205445
+    second: Light_Mage_Spritelist_84
+  - first:
+      213: 5721103049944620285
+    second: Light_Mage_Spritelist_85
+  - first:
+      213: -3475781343777926092
+    second: Light_Mage_Spritelist_86
+  - first:
+      213: -7133347333268066009
+    second: Light_Mage_Spritelist_87
+  - first:
+      213: -6593395314191702791
+    second: Light_Mage_Spritelist_88
+  - first:
+      213: 9075911092561905431
+    second: Light_Mage_Spritelist_89
+  - first:
+      213: 2819271649337833257
+    second: Light_Mage_Spritelist_90
+  - first:
+      213: 8663934617100692042
+    second: Light_Mage_Spritelist_91
+  - first:
+      213: -1965586297867353144
+    second: Light_Mage_Spritelist_92
+  - first:
+      213: 500266436623019774
+    second: Light_Mage_Spritelist_93
+  - first:
+      213: -1891863091924505867
+    second: Light_Mage_Spritelist_94
+  - first:
+      213: -3651682562711917389
+    second: Light_Mage_Spritelist_95
+  - first:
+      213: -450580513909672530
+    second: Light_Mage_Spritelist_96
+  - first:
+      213: -1585073481636046063
+    second: Light_Mage_Spritelist_97
+  - first:
+      213: 4708304010776092383
+    second: Light_Mage_Spritelist_98
+  - first:
+      213: 2010813337091336499
+    second: Light_Mage_Spritelist_99
+  - first:
+      213: 3259289070556084973
+    second: Light_Mage_Spritelist_100
+  - first:
+      213: 7483615898525551327
+    second: Light_Mage_Spritelist_101
+  - first:
+      213: -2132333668575498814
+    second: Light_Mage_Spritelist_102
+  - first:
+      213: 1576206123863501465
+    second: Light_Mage_Spritelist_103
+  - first:
+      213: -3386514623885207982
+    second: Light_Mage_Spritelist_104
+  - first:
+      213: -230133696231263872
+    second: Light_Mage_Spritelist_105
+  - first:
+      213: -1173213547616570514
+    second: Light_Mage_Spritelist_106
+  - first:
+      213: -437433382240998841
+    second: Light_Mage_Spritelist_107
+  - first:
+      213: 3119345610387646256
+    second: Light_Mage_Spritelist_108
+  - first:
+      213: 8651613127832386551
+    second: Light_Mage_Spritelist_109
+  - first:
+      213: -6876884559758514055
+    second: Light_Mage_Spritelist_110
+  - first:
+      213: -7706576167304541188
+    second: Light_Mage_Spritelist_111
+  - first:
+      213: 1274964492011116590
+    second: Light_Mage_Spritelist_112
+  - first:
+      213: -7263315309260407253
+    second: Light_Mage_Spritelist_113
+  - first:
+      213: -8466673190545045714
+    second: Light_Mage_Spritelist_114
+  - first:
+      213: 2952372161072425884
+    second: Light_Mage_Spritelist_115
+  - first:
+      213: 8897162139519062829
+    second: Light_Mage_Spritelist_116
+  - first:
+      213: -3407005955510921838
+    second: Light_Mage_Spritelist_117
+  - first:
+      213: -1246931950267363994
+    second: Light_Mage_Spritelist_118
+  - first:
+      213: 2075970240216725357
+    second: Light_Mage_Spritelist_119
+  - first:
+      213: -6524168923154724640
+    second: Light_Mage_Spritelist_120
+  - first:
+      213: 3119481996163514179
+    second: Light_Mage_Spritelist_121
+  - first:
+      213: 7266245071448096575
+    second: Light_Mage_Spritelist_122
+  - first:
+      213: 2295726078384772500
+    second: Light_Mage_Spritelist_123
+  - first:
+      213: -5837624710143936054
+    second: Light_Mage_Spritelist_124
+  - first:
+      213: 91476153620706426
+    second: Light_Mage_Spritelist_125
+  - first:
+      213: -5433958891831788036
+    second: Light_Mage_Spritelist_126
+  - first:
+      213: 3656389797541487903
+    second: Light_Mage_Spritelist_127
+  - first:
+      213: 939215030792032695
+    second: Light_Mage_Spritelist_128
+  - first:
+      213: 5796458716037502252
+    second: Light_Mage_Spritelist_129
+  - first:
+      213: -3063576270355059356
+    second: Light_Mage_Spritelist_130
+  - first:
+      213: 1360075317750261249
+    second: Light_Mage_Spritelist_131
+  - first:
+      213: -3895110344096424930
+    second: Light_Mage_Spritelist_132
+  - first:
+      213: 993538340102487379
+    second: Light_Mage_Spritelist_133
+  - first:
+      213: 6294799097263571043
+    second: Light_Mage_Spritelist_134
+  - first:
+      213: 1050121173849439831
+    second: Light_Mage_Spritelist_135
+  - first:
+      213: -3528212638878903969
+    second: Light_Mage_Spritelist_136
+  - first:
+      213: 1546345810448257960
+    second: Light_Mage_Spritelist_137
+  - first:
+      213: 5023193231128219118
+    second: Light_Mage_Spritelist_138
+  - first:
+      213: 8574298321524565522
+    second: Light_Mage_Spritelist_139
+  - first:
+      213: 1589585917672759262
+    second: Light_Mage_Spritelist_140
+  - first:
+      213: 7518231814031913910
+    second: Light_Mage_Spritelist_141
+  - first:
+      213: 5527359742785459999
+    second: Light_Mage_Spritelist_142
+  - first:
+      213: 584704961926614145
+    second: Light_Mage_Spritelist_143
+  - first:
+      213: -6736950086288095635
+    second: Light_Mage_Spritelist_144
+  - first:
+      213: -6999080850590395548
+    second: Light_Mage_Spritelist_145
+  - first:
+      213: 6466875172439396581
+    second: Light_Mage_Spritelist_146
+  - first:
+      213: 5163207215408685074
+    second: Light_Mage_Spritelist_147
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1193
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06aa806d2100a9180800000000000000
+      internalID: -9107967215503103392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1153
+        width: 29
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 531a2fc7a181c90c0800000000000000
+      internalID: -4567749420016033483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1193
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be30c19b7d6716fb0800000000000000
+      internalID: -4656309870828715029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 1153
+        width: 30
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 725c7ed9e6e9b6830800000000000000
+      internalID: 4065517286564807975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_4
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1193
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 797b07fc5bcb9da20800000000000000
+      internalID: 3087706508594558871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_5
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 1153
+        width: 33
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb78fb0bcfa59afc0800000000000000
+      internalID: -3483152795450767425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 1193
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1b7dd7e0157fb5d0800000000000000
+      internalID: -3044586107609187555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_7
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1153
+        width: 34
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 866335c88526e1490800000000000000
+      internalID: -7773667774343989656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_8
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 1193
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16d0c7d45c317e620800000000000000
+      internalID: 2803231031190883681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_9
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 1153
+        width: 34
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf68cb53bfdfa0140800000000000000
+      internalID: 4686837617612588795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_10
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 1193
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa4d5679af81fc050800000000000000
+      internalID: 5822900307774264490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_11
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 1153
+        width: 36
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86c5373ce73b3a8b0800000000000000
+      internalID: -5142068992500605848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_12
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 1193
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eb27b65dd19aec40800000000000000
+      internalID: 5542402671261461472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_13
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 1153
+        width: 36
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99cd33506c8fe1dc0800000000000000
+      internalID: -3666219517258507111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_14
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1179
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae174f97f25b444d0800000000000000
+      internalID: -3151194623738351126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_15
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 1179
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7f92985a7b5b27d0800000000000000
+      internalID: -2942157350526345345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_16
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 1179
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55ce4a26f200c3380800000000000000
+      internalID: -8990310552619914155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_17
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 1179
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b27851d63ccd7d520800000000000000
+      internalID: 2726890831302985515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_18
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 1179
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf4129d89f1d4750800000000000000
+      internalID: 6290718995844779994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_19
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 1179
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04ea8d71c3799f690800000000000000
+      internalID: -7567851414465499584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_20
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 1179
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f3293f479e84870800000000000000
+      internalID: 8667434171386445684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_21
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1062
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d12e0bdba1cca3050800000000000000
+      internalID: 5781157486907154973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_22
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1051
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dfacf23648f4d620800000000000000
+      internalID: 2798134248890740690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_23
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 1023
+        width: 75
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63377507d771c7790800000000000000
+      internalID: -7531118649347181770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_24
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 1023
+        width: 23
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1786abf7afd012370800000000000000
+      internalID: 8295927358129072241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_25
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 1023
+        width: 23
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cadd28769da04c10800000000000000
+      internalID: 2035817893344434882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_26
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 1023
+        width: 24
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f73a7c7678dc19750800000000000000
+      internalID: 6310050534368191359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_27
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 1023
+        width: 23
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b9d9a14c8c613d60800000000000000
+      internalID: 7868189373645838770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_28
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 1023
+        width: 24
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9d1c4cd455682e50800000000000000
+      internalID: 6784784253781286303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_29
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1023
+        width: 23
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c0b2cc95b449ea0800000000000000
+      internalID: -5866981565507367843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_30
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 895
+        width: 40
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d48b0943fdb9de40800000000000000
+      internalID: 5681781257504785621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_31
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 927
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85048a5823aa83020800000000000000
+      internalID: 2321792741876973656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_32
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 895
+        width: 38
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59afe100bd2fd5c50800000000000000
+      internalID: 6655742846737250965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_33
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 925
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a6b9e07d4531610800000000000000
+      internalID: 1590708376031685147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_34
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 895
+        width: 64
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baa0c7c5edf3efc00800000000000000
+      internalID: 936255996806564523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_35
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 895
+        width: 59
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbd31d87c22bffe0800000000000000
+      internalID: -1154290639029675087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_36
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 895
+        width: 58
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc1cc1cc2e0e2df0800000000000000
+      internalID: -203209347792364351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_37
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 928
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0333e494a3735820800000000000000
+      internalID: 2905793335293850382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_38
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 895
+        width: 60
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867b1a4d5dee68f00800000000000000
+      internalID: 1118844159610959720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_39
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 927
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867da89ad1b0e5da0800000000000000
+      internalID: -5954309435310811288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_40
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 938
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af0b5dabc418da400800000000000000
+      internalID: 337067713674719482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_41
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 895
+        width: 47
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5807d999f98aa470800000000000000
+      internalID: 8406683359561320540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_42
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 923
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50c847cce175ed60800000000000000
+      internalID: 7918860781570539613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_43
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 929
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5cb93ef9d250860800000000000000
+      internalID: 7495447319569745313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_44
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 895
+        width: 34
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c0a1a1d2a530320800000000000000
+      internalID: 2522959366015552529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_45
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 932
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b19e3ba564064a820800000000000000
+      internalID: 2928571512983382299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_46
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 919
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8a2cba40205ba400800000000000000
+      internalID: 336450696792255118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_47
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 921
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e73a7ce38e39e3e40800000000000000
+      internalID: 5638106409209406334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_48
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 922
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e44f4a976bd5650800000000000000
+      internalID: 6223330893670665796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_49
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 767
+        width: 33
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f347ba5ffe7cbfe90800000000000000
+      internalID: -6990774163129797569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_50
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 767
+        width: 37
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c753fdda7e19cc970800000000000000
+      internalID: 8776550198078813564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_51
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 767
+        width: 52
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ac3d5094bf9895f0800000000000000
+      internalID: -749673740092228446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_52
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 838
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ae518322d66f920800000000000000
+      internalID: 3023724193563142682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_53
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 840
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea08eb1512084c70800000000000000
+      internalID: 8955410148711992042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_54
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 831
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d203c076acc973ee0800000000000000
+      internalID: -1281383175837437907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_55
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 822
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad10b448c7114d00800000000000000
+      internalID: 955070744892546472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_56
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 767
+        width: 50
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fef2bb9f9f614600800000000000000
+      internalID: 450764169016442612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_57
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 767
+        width: 51
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79aab7d2926f738e0800000000000000
+      internalID: -1713630476474013033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_58
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 767
+        width: 34
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 760a1e7528bb15d70800000000000000
+      internalID: 9030204896349102183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_59
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 826
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b475d57ec4865f0e0800000000000000
+      internalID: -2236766960411125941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_60
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 829
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e24edff09538890800000000000000
+      internalID: -7457018632776438220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_61
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 767
+        width: 59
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96a66845eff84760800000000000000
+      internalID: 7442479744457025180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_62
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 826
+        width: 29
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 636ba8e5339b36680800000000000000
+      internalID: -8762956819652233674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_63
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 828
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a231db6f559c3870800000000000000
+      internalID: 8663964020217295524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_64
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 830
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a684482f2b455d40800000000000000
+      internalID: 5572442779851982501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_65
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 816
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 536893cfd71596680800000000000000
+      internalID: -8761381998528199115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_66
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 767
+        width: 55
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f6b0881a5ac1fb50800000000000000
+      internalID: 6625299015145666294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_67
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 812
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb7079c5426a745b0800000000000000
+      internalID: -5384152154395703361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_68
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 767
+        width: 41
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c7661d727675e2f0800000000000000
+      internalID: -944218312767281216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_69
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 797
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3201f697f6f544db0800000000000000
+      internalID: -4808613569741516765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_70
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 807
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1777e5bc77fd2370800000000000000
+      internalID: 8299561803313542941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_71
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 767
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65f0750eaf8af5b90800000000000000
+      internalID: -7250891079584116906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_72
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 799
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1790ec6d7644188d0800000000000000
+      internalID: -2845918276745295503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_73
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 809
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ee56166ac25ac80800000000000000
+      internalID: -8312188444132118892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_74
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 639
+        width: 50
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c3ebd36a481b36d0800000000000000
+      internalID: -3009785218185042999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_75
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 677
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 681c700e438277b00800000000000000
+      internalID: 826173264207790470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_76
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 686
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71954b6b938f1c70800000000000000
+      internalID: 8944012088523985275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_77
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 684
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e600274cdfc907be0800000000000000
+      internalID: -1481511663668428690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_78
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 639
+        width: 54
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68017f9e0ea5de590800000000000000
+      internalID: -7643353070533406586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_79
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 678
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 169157051b2285420800000000000000
+      internalID: 2618881328270350689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_80
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 685
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfc178b1f6c901510800000000000000
+      internalID: 1517885075440999676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_81
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 639
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f14eb3a7c99f3b0800000000000000
+      internalID: -5478175422914748636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_82
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 657
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5345e9a03090e80800000000000000
+      internalID: -8212029101392513570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_83
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 664
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ea5aa75b07647d30800000000000000
+      internalID: 4428277632025123559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_84
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 639
+        width: 44
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb02ea478eb3220c0800000000000000
+      internalID: -4602049999643205445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_85
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 674
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc5a5789e0756f40800000000000000
+      internalID: 5721103049944620285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_86
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 683
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 434df27884b83cfc0800000000000000
+      internalID: -3475781343777926092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_87
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 679
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721b31df462410d90800000000000000
+      internalID: -7133347333268066009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_88
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 676
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f4e0e125ed8f74a0800000000000000
+      internalID: -6593395314191702791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_89
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 669
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7170e2d6d0d14fd70800000000000000
+      internalID: 9075911092561905431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_90
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 671
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9277c10c0a0102720800000000000000
+      internalID: 2819271649337833257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_91
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 667
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4a2f7971aa7c3870800000000000000
+      internalID: 8663934617100692042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_92
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 659
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3cd3c1da5d8b4e0800000000000000
+      internalID: -1965586297867353144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_93
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 659
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe27ff6cad41f600800000000000000
+      internalID: 500266436623019774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_94
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 659
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5faea2a9a80ceb5e0800000000000000
+      internalID: -1891863091924505867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_95
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 511
+        width: 26
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc61118e0e925dc0800000000000000
+      internalID: -3651682562711917389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_96
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 511
+        width: 25
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea573bde8673fb9f0800000000000000
+      internalID: -450580513909672530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_97
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 511
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b11380110b00ae0800000000000000
+      internalID: -1585073481636046063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_98
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 511
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde1bd85d81475140800000000000000
+      internalID: 4708304010776092383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_99
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 511
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33962fa8318d7eb10800000000000000
+      internalID: 2010813337091336499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_100
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 511
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deafec624225b3d20800000000000000
+      internalID: 3259289070556084973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_101
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 511
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdac41382052bd760800000000000000
+      internalID: 7483615898525551327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_102
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 568
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cda3f573dd6862e0800000000000000
+      internalID: -2132333668575498814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_103
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 557
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99aeda95e1fcfd510800000000000000
+      internalID: 1576206123863501465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_104
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 546
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25618a064eea001d0800000000000000
+      internalID: -3386514623885207982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_105
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 547
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 081b9416f966eccf0800000000000000
+      internalID: -230133696231263872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_106
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 552
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6373a09e78e7bfe0800000000000000
+      internalID: -1173213547616570514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_107
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 569
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74aa0ae08acede9f0800000000000000
+      internalID: -437433382240998841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_108
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 555
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03764de3e442a4b20800000000000000
+      internalID: 3119345610387646256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_109
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 548
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fb3e823d44b01870800000000000000
+      internalID: 8651613127832386551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_110
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 549
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978a93e9de56090a0800000000000000
+      internalID: -6876884559758514055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_111
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 557
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfb42599ecdbc0590800000000000000
+      internalID: -7706576167304541188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_112
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 552
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e281f8f437591b110800000000000000
+      internalID: 1274964492011116590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_113
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 558
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e70eb7535833b90800000000000000
+      internalID: -7263315309260407253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_114
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 551
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e274d307795508a80800000000000000
+      internalID: -8466673190545045714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_115
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 383
+        width: 46
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b697196dee8f820800000000000000
+      internalID: 2952372161072425884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_116
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 419
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d239613a3d1197b70800000000000000
+      internalID: 8897162139519062829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_117
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 383
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29591227222e7b0d0800000000000000
+      internalID: -3407005955510921838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_118
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 420
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66d8a3d6ff102bee0800000000000000
+      internalID: -1246931950267363994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_119
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 383
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d67766c3fe35fcc10800000000000000
+      internalID: 2075970240216725357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_120
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 383
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e848b05eee7575a0800000000000000
+      internalID: -6524168923154724640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_121
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 383
+        width: 32
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34f7d880950aa4b20800000000000000
+      internalID: 3119481996163514179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_122
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 383
+        width: 89
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3fb89ee463e6d460800000000000000
+      internalID: 7266245071448096575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_123
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 383
+        width: 119
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49599bb74be0cdf10800000000000000
+      internalID: 2295726078384772500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_124
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 383
+        width: 119
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac9f3d351479cfea0800000000000000
+      internalID: -5837624710143936054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_125
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 383
+        width: 120
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a743bf9b31df44100800000000000000
+      internalID: 91476153620706426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_126
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 383
+        width: 118
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfd7a40ad23b694b0800000000000000
+      internalID: -5433958891831788036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_127
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 383
+        width: 118
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f15a2d2062b1eb230800000000000000
+      internalID: 3656389797541487903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_128
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 383
+        width: 114
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b111162813c80d00800000000000000
+      internalID: 939215030792032695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_129
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 383
+        width: 114
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c25d1a4cd78217050800000000000000
+      internalID: 5796458716037502252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_130
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 385
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46dab271d9dfb75d0800000000000000
+      internalID: -3063576270355059356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_131
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 385
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 106e746ab45ffd210800000000000000
+      internalID: 1360075317750261249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_132
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 255
+        width: 31
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1cde2b77c9c1f9c0800000000000000
+      internalID: -3895110344096424930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_133
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 255
+        width: 24
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d3a883bd1c9cd00800000000000000
+      internalID: 993538340102487379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_134
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 262
+        width: 32
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36048dc7d6e9b5750800000000000000
+      internalID: 6294799097263571043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_135
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 265
+        width: 24
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e7962d4a7c29e00800000000000000
+      internalID: 1050121173849439831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_136
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 272
+        width: 37
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5154975c45490fc0800000000000000
+      internalID: -3528212638878903969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_137
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 255
+        width: 36
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a39eab5259b57510800000000000000
+      internalID: 1546345810448257960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_138
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 255
+        width: 34
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eed4b8331a7f5b540800000000000000
+      internalID: 5023193231128219118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_139
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 255
+        width: 26
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21623b415e60ef670800000000000000
+      internalID: 8574298321524565522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_140
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 127
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf19da58f75f0610800000000000000
+      internalID: 1589585917672759262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_141
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 127
+        width: 34
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b3b9666000265860800000000000000
+      internalID: 7518231814031913910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_142
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 127
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f17958e966025bc40800000000000000
+      internalID: 5527359742785459999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_143
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 34
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18c4b02a01a4d1800800000000000000
+      internalID: 584704961926614145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_144
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 0
+        width: 34
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d66c245279b8182a0800000000000000
+      internalID: -6736950086288095635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_145
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46312529c054ede90800000000000000
+      internalID: -6999080850590395548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_146
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 0
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e01b04d4b4feb950800000000000000
+      internalID: 6466875172439396581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Light_Mage_Spritelist_147
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 0
+        width: 56
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2102b284b9567a740800000000000000
+      internalID: 5163207215408685074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Light_Mage_Spritelist_0: -9107967215503103392
+      Light_Mage_Spritelist_1: -4567749420016033483
+      Light_Mage_Spritelist_10: 5822900307774264490
+      Light_Mage_Spritelist_100: 3259289070556084973
+      Light_Mage_Spritelist_101: 7483615898525551327
+      Light_Mage_Spritelist_102: -2132333668575498814
+      Light_Mage_Spritelist_103: 1576206123863501465
+      Light_Mage_Spritelist_104: -3386514623885207982
+      Light_Mage_Spritelist_105: -230133696231263872
+      Light_Mage_Spritelist_106: -1173213547616570514
+      Light_Mage_Spritelist_107: -437433382240998841
+      Light_Mage_Spritelist_108: 3119345610387646256
+      Light_Mage_Spritelist_109: 8651613127832386551
+      Light_Mage_Spritelist_11: -5142068992500605848
+      Light_Mage_Spritelist_110: -6876884559758514055
+      Light_Mage_Spritelist_111: -7706576167304541188
+      Light_Mage_Spritelist_112: 1274964492011116590
+      Light_Mage_Spritelist_113: -7263315309260407253
+      Light_Mage_Spritelist_114: -8466673190545045714
+      Light_Mage_Spritelist_115: 2952372161072425884
+      Light_Mage_Spritelist_116: 8897162139519062829
+      Light_Mage_Spritelist_117: -3407005955510921838
+      Light_Mage_Spritelist_118: -1246931950267363994
+      Light_Mage_Spritelist_119: 2075970240216725357
+      Light_Mage_Spritelist_12: 5542402671261461472
+      Light_Mage_Spritelist_120: -6524168923154724640
+      Light_Mage_Spritelist_121: 3119481996163514179
+      Light_Mage_Spritelist_122: 7266245071448096575
+      Light_Mage_Spritelist_123: 2295726078384772500
+      Light_Mage_Spritelist_124: -5837624710143936054
+      Light_Mage_Spritelist_125: 91476153620706426
+      Light_Mage_Spritelist_126: -5433958891831788036
+      Light_Mage_Spritelist_127: 3656389797541487903
+      Light_Mage_Spritelist_128: 939215030792032695
+      Light_Mage_Spritelist_129: 5796458716037502252
+      Light_Mage_Spritelist_13: -3666219517258507111
+      Light_Mage_Spritelist_130: -3063576270355059356
+      Light_Mage_Spritelist_131: 1360075317750261249
+      Light_Mage_Spritelist_132: -3895110344096424930
+      Light_Mage_Spritelist_133: 993538340102487379
+      Light_Mage_Spritelist_134: 6294799097263571043
+      Light_Mage_Spritelist_135: 1050121173849439831
+      Light_Mage_Spritelist_136: -3528212638878903969
+      Light_Mage_Spritelist_137: 1546345810448257960
+      Light_Mage_Spritelist_138: 5023193231128219118
+      Light_Mage_Spritelist_139: 8574298321524565522
+      Light_Mage_Spritelist_14: -3151194623738351126
+      Light_Mage_Spritelist_140: 1589585917672759262
+      Light_Mage_Spritelist_141: 7518231814031913910
+      Light_Mage_Spritelist_142: 5527359742785459999
+      Light_Mage_Spritelist_143: 584704961926614145
+      Light_Mage_Spritelist_144: -6736950086288095635
+      Light_Mage_Spritelist_145: -6999080850590395548
+      Light_Mage_Spritelist_146: 6466875172439396581
+      Light_Mage_Spritelist_147: 5163207215408685074
+      Light_Mage_Spritelist_15: -2942157350526345345
+      Light_Mage_Spritelist_16: -8990310552619914155
+      Light_Mage_Spritelist_17: 2726890831302985515
+      Light_Mage_Spritelist_18: 6290718995844779994
+      Light_Mage_Spritelist_19: -7567851414465499584
+      Light_Mage_Spritelist_2: -4656309870828715029
+      Light_Mage_Spritelist_20: 8667434171386445684
+      Light_Mage_Spritelist_21: 5781157486907154973
+      Light_Mage_Spritelist_22: 2798134248890740690
+      Light_Mage_Spritelist_23: -7531118649347181770
+      Light_Mage_Spritelist_24: 8295927358129072241
+      Light_Mage_Spritelist_25: 2035817893344434882
+      Light_Mage_Spritelist_26: 6310050534368191359
+      Light_Mage_Spritelist_27: 7868189373645838770
+      Light_Mage_Spritelist_28: 6784784253781286303
+      Light_Mage_Spritelist_29: -5866981565507367843
+      Light_Mage_Spritelist_3: 4065517286564807975
+      Light_Mage_Spritelist_30: 5681781257504785621
+      Light_Mage_Spritelist_31: 2321792741876973656
+      Light_Mage_Spritelist_32: 6655742846737250965
+      Light_Mage_Spritelist_33: 1590708376031685147
+      Light_Mage_Spritelist_34: 936255996806564523
+      Light_Mage_Spritelist_35: -1154290639029675087
+      Light_Mage_Spritelist_36: -203209347792364351
+      Light_Mage_Spritelist_37: 2905793335293850382
+      Light_Mage_Spritelist_38: 1118844159610959720
+      Light_Mage_Spritelist_39: -5954309435310811288
+      Light_Mage_Spritelist_4: 3087706508594558871
+      Light_Mage_Spritelist_40: 337067713674719482
+      Light_Mage_Spritelist_41: 8406683359561320540
+      Light_Mage_Spritelist_42: 7918860781570539613
+      Light_Mage_Spritelist_43: 7495447319569745313
+      Light_Mage_Spritelist_44: 2522959366015552529
+      Light_Mage_Spritelist_45: 2928571512983382299
+      Light_Mage_Spritelist_46: 336450696792255118
+      Light_Mage_Spritelist_47: 5638106409209406334
+      Light_Mage_Spritelist_48: 6223330893670665796
+      Light_Mage_Spritelist_49: -6990774163129797569
+      Light_Mage_Spritelist_5: -3483152795450767425
+      Light_Mage_Spritelist_50: 8776550198078813564
+      Light_Mage_Spritelist_51: -749673740092228446
+      Light_Mage_Spritelist_52: 3023724193563142682
+      Light_Mage_Spritelist_53: 8955410148711992042
+      Light_Mage_Spritelist_54: -1281383175837437907
+      Light_Mage_Spritelist_55: 955070744892546472
+      Light_Mage_Spritelist_56: 450764169016442612
+      Light_Mage_Spritelist_57: -1713630476474013033
+      Light_Mage_Spritelist_58: 9030204896349102183
+      Light_Mage_Spritelist_59: -2236766960411125941
+      Light_Mage_Spritelist_6: -3044586107609187555
+      Light_Mage_Spritelist_60: -7457018632776438220
+      Light_Mage_Spritelist_61: 7442479744457025180
+      Light_Mage_Spritelist_62: -8762956819652233674
+      Light_Mage_Spritelist_63: 8663964020217295524
+      Light_Mage_Spritelist_64: 5572442779851982501
+      Light_Mage_Spritelist_65: -8761381998528199115
+      Light_Mage_Spritelist_66: 6625299015145666294
+      Light_Mage_Spritelist_67: -5384152154395703361
+      Light_Mage_Spritelist_68: -944218312767281216
+      Light_Mage_Spritelist_69: -4808613569741516765
+      Light_Mage_Spritelist_7: -7773667774343989656
+      Light_Mage_Spritelist_70: 8299561803313542941
+      Light_Mage_Spritelist_71: -7250891079584116906
+      Light_Mage_Spritelist_72: -2845918276745295503
+      Light_Mage_Spritelist_73: -8312188444132118892
+      Light_Mage_Spritelist_74: -3009785218185042999
+      Light_Mage_Spritelist_75: 826173264207790470
+      Light_Mage_Spritelist_76: 8944012088523985275
+      Light_Mage_Spritelist_77: -1481511663668428690
+      Light_Mage_Spritelist_78: -7643353070533406586
+      Light_Mage_Spritelist_79: 2618881328270350689
+      Light_Mage_Spritelist_8: 2803231031190883681
+      Light_Mage_Spritelist_80: 1517885075440999676
+      Light_Mage_Spritelist_81: -5478175422914748636
+      Light_Mage_Spritelist_82: -8212029101392513570
+      Light_Mage_Spritelist_83: 4428277632025123559
+      Light_Mage_Spritelist_84: -4602049999643205445
+      Light_Mage_Spritelist_85: 5721103049944620285
+      Light_Mage_Spritelist_86: -3475781343777926092
+      Light_Mage_Spritelist_87: -7133347333268066009
+      Light_Mage_Spritelist_88: -6593395314191702791
+      Light_Mage_Spritelist_89: 9075911092561905431
+      Light_Mage_Spritelist_9: 4686837617612588795
+      Light_Mage_Spritelist_90: 2819271649337833257
+      Light_Mage_Spritelist_91: 8663934617100692042
+      Light_Mage_Spritelist_92: -1965586297867353144
+      Light_Mage_Spritelist_93: 500266436623019774
+      Light_Mage_Spritelist_94: -1891863091924505867
+      Light_Mage_Spritelist_95: -3651682562711917389
+      Light_Mage_Spritelist_96: -450580513909672530
+      Light_Mage_Spritelist_97: -1585073481636046063
+      Light_Mage_Spritelist_98: 4708304010776092383
+      Light_Mage_Spritelist_99: 2010813337091336499
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
