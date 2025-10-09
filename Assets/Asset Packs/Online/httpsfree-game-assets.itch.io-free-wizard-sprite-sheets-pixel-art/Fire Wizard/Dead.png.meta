@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: e81743180a194904e9e1f788db690bac
+guid: a5ec218ad534c1e40ab812d8352d4f96
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2048800907179887802
-    second: Hurt_0
+      213: 2649847697073447219
+    second: Dead_0
   - first:
-      213: 490842205202310979
-    second: Hurt_1
+      213: -8293461521501190705
+    second: Dead_1
   - first:
-      213: -3720053754089064719
-    second: Hurt_2
+      213: -1631342717326862633
+    second: Dead_2
+  - first:
+      213: -3927913518680497933
+    second: Dead_3
+  - first:
+      213: -1057675302478342458
+    second: Dead_4
+  - first:
+      213: -7954960911384535938
+    second: Dead_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hurt_0
+      name: Dead_0
       rect:
         serializedVersion: 2
         x: 0
@@ -134,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6437b001e623193e0800000000000000
-      internalID: -2048800907179887802
+      spriteID: 33123f4e07626c420800000000000000
+      internalID: 2649847697073447219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hurt_1
+      name: Dead_1
       rect:
         serializedVersion: 2
         x: 128
@@ -156,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3476ad19262dfc600800000000000000
-      internalID: 490842205202310979
+      spriteID: fc50d84dfa4b7ec80800000000000000
+      internalID: -8293461521501190705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hurt_2
+      name: Dead_2
       rect:
         serializedVersion: 2
         x: 256
@@ -178,8 +187,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f6b92202d6bf5cc0800000000000000
-      internalID: -3720053754089064719
+      spriteID: 7d6dfca117e4c59e0800000000000000
+      internalID: -1631342717326862633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f0289a377f3d79c0800000000000000
+      internalID: -3927913518680497933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c6131c8ae16251f0800000000000000
+      internalID: -1057675302478342458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dead_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7c9ec2c23d4a9190800000000000000
+      internalID: -7954960911384535938
       vertices: []
       indices: 
       edges: []
@@ -188,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7159e7a5dfde48242afaedb5b2530609
+    spriteID: 900da21dc6ee97341a65294bfa18a618
     internalID: 0
     vertices: []
     indices: 
@@ -200,9 +275,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Hurt_0: -2048800907179887802
-      Hurt_1: 490842205202310979
-      Hurt_2: -3720053754089064719
+      Dead_0: 2649847697073447219
+      Dead_1: -8293461521501190705
+      Dead_2: -1631342717326862633
+      Dead_3: -3927913518680497933
+      Dead_4: -1057675302478342458
+      Dead_5: -7954960911384535938
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
