@@ -13,4 +13,10 @@ public class Match3Events : MonoBehaviour
     public static Action<int> OnScoreAdded;
     public static Action OnScoreReset;
 
+    public static Action OnBackgroundMove;
+    public static Action OnNewBackgroundImage;
+    
+    public static Action OnCharacterMoveRight;
+
+
 }
